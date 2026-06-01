@@ -28,8 +28,15 @@
       <!-- Sticky Navbar (User-Centric) -->
       <nav class="fixed top-0 w-full p-4 md:p-6 z-40 bg-background/90 backdrop-blur-md border-b border-secondary/50 flex justify-between items-center transition-all">
         <a href="#" class="text-2xl font-display font-bold tracking-widest uppercase hover:text-accent transition-colors">ERDEM ÇEVİK</a>
-        <div class="hidden md:flex gap-8 text-sm font-bold uppercase tracking-widest">
-          <a href="#portfolio" class="hover:text-accent transition-colors">Portfolyo</a>
+        <div class="hidden md:flex gap-8 text-sm font-bold uppercase tracking-widest items-center">
+          <!-- Dropdown Container -->
+          <div class="relative group py-2">
+            <a href="#portfolio" class="hover:text-accent transition-colors">Portfolyo</a>
+            <!-- Dropdown Menu -->
+            <div class="absolute left-0 top-full mt-2 w-48 bg-extra border border-secondary/50 shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex flex-col z-50 transform translate-y-2 group-hover:translate-y-0">
+              <a href="lidio.html" class="px-4 py-3 hover:bg-accent hover:text-background transition-colors text-primary">LIDIO GLOBAL</a>
+            </div>
+          </div>
           <a href="#social" class="hover:text-accent transition-colors">Social</a>
         </div>
         <a href="#contact" class="bg-accent text-background px-6 py-2 font-bold uppercase tracking-widest hover:bg-primary transition-colors">İletişime Geç</a>
