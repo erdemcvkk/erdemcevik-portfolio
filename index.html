@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- SEO Meta Tags -->
+  <title>Erdem Çevik | Premium Creative Studio & Visual Storyteller</title>
+  <meta name="description" content="Luxury Streetwear Studio konseptiyle Erdem Çevik'in premium portfolyosu. Markaları dikkat çekici tasarımlarla öne çıkarıyorum." />
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="./src/style.css" />
+</head>
+<body class="bg-background text-primary overflow-x-hidden font-sans">
+  
+  <!-- Custom Cursor -->
+  <div class="custom-cursor hidden md:block"></div>
+
+  <!-- Loading Screen -->
+  <div id="loading-screen" class="fixed inset-0 z-50 bg-background flex items-center justify-center">
+    <div class="text-4xl md:text-6xl font-black tracking-tighter text-transparent" style="-webkit-text-stroke: 1px #FFF;">
+      <span id="loading-logo" class="opacity-0">ERDEM ÇEVİK</span>
+    </div>
+  </div>
+
+  <main id="smooth-wrapper">
+    <div id="smooth-content">
+      
+      <!-- Navbar (Minimal) -->
+      <nav class="fixed top-0 w-full p-6 md:p-10 z-40 flex justify-between items-center mix-blend-difference text-primary">
+        <div class="text-xl font-bold tracking-widest uppercase">E. ÇEVİK</div>
+        <button class="hover-target text-sm tracking-widest uppercase font-semibold">Menu</button>
+      </nav>
+
+      <!-- Hero Section -->
+      <section class="h-screen w-full flex flex-col justify-center px-6 md:px-20 relative">
+        <div class="absolute inset-0 z-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1595180631626-d922bc308705?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center bg-no-repeat"></div>
+        <div class="relative z-10">
+          <h2 class="text-accent text-sm md:text-lg font-semibold tracking-[0.2em] uppercase mb-4 hero-anim">Creative Studio</h2>
+          <h1 class="text-6xl md:text-[10rem] font-black uppercase leading-none tracking-tighter mb-6 hero-anim">Erdem<br/>Çevik</h1>
+          <p class="text-secondary max-w-lg text-lg md:text-2xl mb-10 hero-anim">Creative Designer & Visual Storyteller. Markaları dikkat çekici tasarımlarla öne çıkarıyorum.</p>
+          
+          <div class="flex gap-6 hero-anim">
+            <a href="#portfolio" class="hover-target px-8 py-4 bg-primary text-background font-bold uppercase tracking-widest hover:bg-accent hover:text-background transition-colors duration-300">Çalışmaları Gör</a>
+            <a href="#contact" class="hover-target px-8 py-4 border border-primary/20 text-primary font-bold uppercase tracking-widest hover:border-primary transition-colors duration-300">Teklif Al</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="py-32 px-6 md:px-20 border-t border-white/10">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-20">
+          <div>
+            <h3 class="text-4xl md:text-6xl font-bold uppercase tracking-tight mb-8">Marka Kimliği<br/><span class="text-outline">Yeniden Tanımlanıyor</span></h3>
+            <p class="text-secondary text-lg leading-relaxed mb-8">Modern editorial tasarım ve hype culture dinamiklerini birleştirerek, sıradanlığın dışında, premium ve kalıcı marka deneyimleri inşa ediyorum. Sadece tasarım yapmıyor, bir hikaye anlatıyorum.</p>
+          </div>
+          <div class="grid grid-cols-2 gap-6">
+            <div class="glassmorphism p-6 flex flex-col justify-center">
+              <span class="text-accent text-sm uppercase tracking-widest mb-2">01</span>
+              <h4 class="text-xl font-bold">Grafik Tasarım</h4>
+            </div>
+            <div class="glassmorphism p-6 flex flex-col justify-center">
+              <span class="text-accent text-sm uppercase tracking-widest mb-2">02</span>
+              <h4 class="text-xl font-bold">Marka Kimliği</h4>
+            </div>
+            <div class="glassmorphism p-6 flex flex-col justify-center">
+              <span class="text-accent text-sm uppercase tracking-widest mb-2">03</span>
+              <h4 class="text-xl font-bold">Sosyal Medya</h4>
+            </div>
+            <div class="glassmorphism p-6 flex flex-col justify-center">
+              <span class="text-accent text-sm uppercase tracking-widest mb-2">04</span>
+              <h4 class="text-xl font-bold">Reklam Tasarımı</h4>
+            </div>
+          </div>
+        </div>
+        
+        <div class="mt-20 flex flex-wrap gap-4 text-secondary uppercase tracking-widest text-xs font-semibold">
+          <span class="px-4 py-2 border border-white/10 rounded-full">Photoshop</span>
+          <span class="px-4 py-2 border border-white/10 rounded-full">Illustrator</span>
+          <span class="px-4 py-2 border border-white/10 rounded-full">Figma</span>
+          <span class="px-4 py-2 border border-white/10 rounded-full">After Effects</span>
+          <span class="px-4 py-2 border border-white/10 rounded-full">Midjourney</span>
+          <span class="px-4 py-2 border border-white/10 rounded-full">AI Tools</span>
+        </div>
+      </section>
+
+      <!-- Featured Projects Section -->
+      <section id="portfolio" class="py-32 bg-white/5">
+        <div class="px-6 md:px-20 mb-20 flex justify-between items-end">
+          <h2 class="text-5xl md:text-8xl font-black uppercase tracking-tighter">Seçilmiş<br/>İşler</h2>
+          <a href="#" class="hover-target text-accent uppercase tracking-widest font-bold border-b border-accent pb-1">Tümünü Gör</a>
+        </div>
+
+        <div class="px-6 md:px-20 space-y-32">
+          <!-- Project 1 -->
+          <div class="group relative block project-card">
+            <div class="relative h-[60vh] w-full overflow-hidden bg-black mb-6">
+              <img src="https://images.unsplash.com/photo-1542315059-19d20c38210f?q=80&w=2000&auto=format&fit=crop" alt="Project 1" class="object-cover w-full h-full opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]" />
+            </div>
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="text-3xl font-bold uppercase tracking-tight mb-2">Fear of God x Nike</h3>
+                <p class="text-secondary">Konsept Kampanya Tasarımı</p>
+              </div>
+              <div class="text-right">
+                <span class="block text-accent uppercase tracking-widest text-sm mb-1">Creative Direction</span>
+                <span class="block text-white/50 text-sm">2023</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="group relative block project-card">
+            <div class="relative h-[60vh] w-full overflow-hidden bg-black mb-6">
+              <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=2000&auto=format&fit=crop" alt="Project 2" class="object-cover w-full h-full opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]" />
+            </div>
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="text-3xl font-bold uppercase tracking-tight mb-2">Off-White Aesthetics</h3>
+                <p class="text-secondary">Marka Kimliği & Paketleme</p>
+              </div>
+              <div class="text-right">
+                <span class="block text-accent uppercase tracking-widest text-sm mb-1">Branding</span>
+                <span class="block text-white/50 text-sm">2023</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="py-32 px-6 md:px-20 border-t border-white/10">
+        <div class="max-w-4xl mx-auto text-center">
+          <h2 class="text-5xl md:text-8xl font-black uppercase tracking-tighter mb-8">Projeni<br/><span class="text-outline">Başlat</span></h2>
+          <p class="text-secondary text-xl mb-12">Hemen iletişime geç, markanı bir sonraki seviyeye taşıyalım.</p>
+          
+          <a href="mailto:hello@erdemcevik.com" class="hover-target inline-block text-3xl md:text-5xl font-bold text-primary border-b-2 border-accent pb-2 hover:text-accent transition-colors">hello@erdemcevik.com</a>
+          
+          <div class="mt-20 flex justify-center gap-8">
+            <a href="#" class="hover-target text-secondary hover:text-primary uppercase tracking-widest font-semibold transition-colors">Instagram</a>
+            <a href="#" class="hover-target text-secondary hover:text-primary uppercase tracking-widest font-semibold transition-colors">Behance</a>
+            <a href="#" class="hover-target text-secondary hover:text-primary uppercase tracking-widest font-semibold transition-colors">LinkedIn</a>
+          </div>
+        </div>
+      </section>
+
+      <footer class="py-6 px-6 md:px-20 border-t border-white/10 flex justify-between text-sm text-secondary uppercase tracking-widest">
+        <p>&copy; 2024 Erdem Çevik. All rights reserved.</p>
+        <p>Premium Creative Studio</p>
+      </footer>
+
+    </div>
+  </main>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
