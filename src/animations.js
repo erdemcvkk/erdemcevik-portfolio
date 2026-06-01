@@ -5,7 +5,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export function initAnimations() {
   
-  // 1. Loading Screen Animation (Hızlı ve kullanıcıyı yormayan)
+  // 1. Loading Screen Animation
   const tl = gsap.timeline();
   
   tl.to('#loading-screen', {
@@ -23,8 +23,8 @@ export function initAnimations() {
     ease: "power3.out"
   }, "-=0.2");
 
-  // 3. Scroll Reveal for Sections
-  const sections = gsap.utils.toArray('section:not(:first-child)');
+  // 3. Scroll Reveal for Sections (Gritty / Quick Scale)
+  const sections = gsap.utils.toArray('.section-anim');
   
   sections.forEach(section => {
     gsap.from(section, {
@@ -32,10 +32,11 @@ export function initAnimations() {
         trigger: section,
         start: 'top 85%',
       },
-      y: 50,
+      scale: 0.98,
+      y: 40,
       opacity: 0,
-      duration: 0.8,
-      ease: "power3.out"
+      duration: 0.6,
+      ease: "back.out(1.2)" // Hafif sekme etkisi
     });
   });
 

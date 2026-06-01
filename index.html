@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Erdem Çevik | Creative Director</title>
-  <meta name="description" content="Hiphop Culture + Creative Director" />
+  <meta name="description" content="Advanced Hiphop Culture & Interactive Portfolio" />
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,18 +19,18 @@
   <!-- Loading Screen -->
   <div id="loading-screen" class="fixed inset-0 z-50 bg-background flex flex-col items-center justify-center">
     <div class="text-accent text-6xl md:text-8xl font-display font-black uppercase tracking-tighter glitch-hover" data-text="LOADING">LOADING</div>
-    <div class="mt-4 caution-tape">TAPE 01 / SIDE A</div>
+    <div class="mt-4 caution-tape">TAPE 02 / SIDE B</div>
   </div>
 
   <main id="smooth-wrapper">
     <div id="smooth-content">
       
       <!-- Sticky Navbar (User-Centric) -->
-      <nav class="fixed top-0 w-full p-4 md:p-6 z-40 bg-background/90 backdrop-blur-md border-b border-white/10 flex justify-between items-center transition-all">
+      <nav class="fixed top-0 w-full p-4 md:p-6 z-40 bg-background/90 backdrop-blur-md border-b border-secondary/50 flex justify-between items-center transition-all">
         <a href="#" class="text-2xl font-display font-bold tracking-widest uppercase hover:text-accent transition-colors">ERDEM ÇEVİK</a>
         <div class="hidden md:flex gap-8 text-sm font-bold uppercase tracking-widest">
-          <a href="#services" class="hover:text-accent transition-colors">Hizmetler</a>
           <a href="#portfolio" class="hover:text-accent transition-colors">Portfolyo</a>
+          <a href="#social" class="hover:text-accent transition-colors">Social</a>
         </div>
         <a href="#contact" class="bg-accent text-background px-6 py-2 font-bold uppercase tracking-widest hover:bg-primary transition-colors">İletişime Geç</a>
       </nav>
@@ -43,7 +43,8 @@
           
           <!-- Sol: Dev Tipografi ve CTA -->
           <div class="col-span-1 md:col-span-7 flex flex-col justify-center relative z-10">
-            <div class="mb-6">
+            <div class="mb-6 relative w-max">
+              <div class="tape-strip top-0 -left-6"></div>
               <span class="caution-tape">PARENTAL ADVISORY: EXPLICIT DESIGN</span>
             </div>
             
@@ -52,12 +53,12 @@
               <span class="text-outline">DIRECTOR</span>
             </h1>
             
-            <p class="max-w-lg text-secondary text-lg md:text-xl font-medium leading-relaxed mb-10 hero-anim">
+            <p class="max-w-lg text-primary/70 text-lg md:text-xl font-medium leading-relaxed mb-10 hero-anim">
               Sıradanlığı reddediyorum. Sokağın ritmini ve yüksek modanın lüksünü markalara entegre ediyorum.
             </p>
             
             <div class="flex gap-4 hero-anim">
-              <a href="#portfolio" class="bg-accent text-background px-8 py-4 font-bold uppercase tracking-widest text-lg hover:bg-primary transition-colors">Projeleri İncele</a>
+              <a href="#portfolio" class="bg-accent text-background px-8 py-4 font-bold uppercase tracking-widest text-lg hover:bg-primary transition-colors shadow-[4px_4px_0px_#FDFBF7]">Projeleri İncele</a>
             </div>
           </div>
           
@@ -67,7 +68,7 @@
               <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1000&auto=format&fit=crop" alt="Erdem Çevik" class="object-cover w-full h-full grayscale" />
               <!-- Mixtape Sticker -->
               <div class="absolute bottom-4 right-4 bg-primary text-background font-bold text-xs uppercase px-2 py-1 transform rotate-3">
-                VOL. 1
+                VOL. 2
               </div>
             </div>
           </div>
@@ -75,89 +76,98 @@
         </div>
       </section>
 
-      <!-- Services (Tape Effect) -->
-      <section id="services" class="py-32 px-6 md:px-20 bg-extra">
-        <h2 class="text-4xl md:text-6xl font-display font-black uppercase tracking-tighter mb-16 text-outline">Hizmetler</h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="p-8 border border-white/10 hover:border-accent transition-colors relative group">
-            <div class="absolute -top-3 -left-3 caution-tape opacity-0 group-hover:opacity-100 transition-opacity">01</div>
-            <h3 class="text-2xl font-display font-bold uppercase mb-4 text-accent">Creative Direction</h3>
-            <p class="text-secondary font-medium">Markanızın tüm görsel kimliğini sıfırdan inşa edip, kampanyalara yön veriyorum.</p>
-          </div>
-          <div class="p-8 border border-white/10 hover:border-accent transition-colors relative group">
-            <div class="absolute -top-3 -left-3 caution-tape opacity-0 group-hover:opacity-100 transition-opacity">02</div>
-            <h3 class="text-2xl font-display font-bold uppercase mb-4 text-accent">Brand Identity</h3>
-            <p class="text-secondary font-medium">Logo, renk paleti ve tipografi ile markanızı lüks ve sokak kültürüyle harmanlıyorum.</p>
-          </div>
-          <div class="p-8 border border-white/10 hover:border-accent transition-colors relative group">
-            <div class="absolute -top-3 -left-3 caution-tape opacity-0 group-hover:opacity-100 transition-opacity">03</div>
-            <h3 class="text-2xl font-display font-bold uppercase mb-4 text-accent">Album / Cover Art</h3>
-            <p class="text-secondary font-medium">Müziğin ritmini ve mesajını yansıtan vurucu kapak tasarımları üretiyorum.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Portfolio (Grid / Mixtape Cards) -->
-      <section id="portfolio" class="py-32 px-6 md:px-20">
-        <div class="flex justify-between items-end mb-16">
+      <!-- Portfolio (Grid / Mixtape Cards with Video Hovers) -->
+      <section id="portfolio" class="py-32 px-6 md:px-20 section-anim">
+        <div class="flex justify-between items-end mb-16 relative">
+          <div class="tape-strip -top-4 -left-4"></div>
           <h2 class="text-5xl md:text-8xl font-display font-black uppercase tracking-tighter">Case<br/><span class="text-outline-accent">Studies</span></h2>
           <div class="barcode text-secondary hidden md:block">PORTFOLIO2026</div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
           
-          <!-- Project 1 -->
-          <a href="#" class="block group">
-            <div class="raw-border w-full aspect-video relative overflow-hidden bg-extra mb-6 grain-filter">
-              <img src="https://images.unsplash.com/photo-1542315059-19d20c38210f?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105" alt="Project">
+          <!-- Project 1 (Video Hover) -->
+          <a href="#" class="block group project-card">
+            <div class="raw-border w-full aspect-video relative overflow-hidden bg-extra mb-6 grain-filter video-hover-container">
+              <video src="https://videos.pexels.com/video-files/853889/853889-hd_1920_1080_25fps.mp4" muted loop playsinline preload="none" class="project-video"></video>
+              <img src="https://images.unsplash.com/photo-1542315059-19d20c38210f?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover grayscale" alt="Project">
               <div class="absolute top-4 left-4 caution-tape">2026</div>
             </div>
             <h3 class="text-3xl font-display font-bold uppercase glitch-hover" data-text="NIKE CAMPAIGN">NIKE CAMPAIGN</h3>
             <p class="text-accent font-bold uppercase tracking-widest text-sm mt-2">Creative Direction</p>
           </a>
 
-          <!-- Project 2 -->
-          <a href="#" class="block group md:mt-24">
-            <div class="raw-border w-full aspect-video relative overflow-hidden bg-extra mb-6 grain-filter">
-              <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105" alt="Project">
+          <!-- Project 2 (Video Hover) -->
+          <a href="#" class="block group project-card md:mt-24">
+            <div class="raw-border w-full aspect-video relative overflow-hidden bg-extra mb-6 grain-filter video-hover-container">
+              <video src="https://videos.pexels.com/video-files/3163534/3163534-hd_1920_1080_30fps.mp4" muted loop playsinline preload="none" class="project-video"></video>
+              <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover grayscale" alt="Project">
               <div class="absolute top-4 left-4 caution-tape">2025</div>
             </div>
             <h3 class="text-3xl font-display font-bold uppercase glitch-hover" data-text="OFF-WHITE AESTHETICS">OFF-WHITE AESTHETICS</h3>
             <p class="text-accent font-bold uppercase tracking-widest text-sm mt-2">Branding</p>
           </a>
-          
-          <!-- Project 3 -->
-          <a href="#" class="block group">
-            <div class="raw-border w-full aspect-[4/3] relative overflow-hidden bg-extra mb-6 grain-filter">
-              <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105" alt="Project">
-              <div class="absolute top-4 left-4 caution-tape">2024</div>
-            </div>
-            <h3 class="text-3xl font-display font-bold uppercase glitch-hover" data-text="CACTUS JACK">CACTUS JACK</h3>
-            <p class="text-accent font-bold uppercase tracking-widest text-sm mt-2">Album Cover Design</p>
-          </a>
 
         </div>
       </section>
 
-      <!-- Contact Section (Direct CTA) -->
-      <section id="contact" class="py-40 px-6 md:px-20 border-t border-white/10 text-center bg-extra">
-        <h2 class="text-5xl md:text-[8rem] font-display font-black uppercase tracking-tighter mb-10 text-primary">
-          LET'S MAKE<br/>NOISE
-        </h2>
-        <p class="text-secondary text-xl mb-12 max-w-2xl mx-auto">Projeleriniz için teklif almak veya bir fikri tartışmak için doğrudan ulaşın.</p>
+      <!-- New: Social Media Gallery (Masonry) -->
+      <section id="social" class="py-32 px-6 md:px-20 bg-extra section-anim relative overflow-hidden">
+        <div class="absolute top-0 right-0 barcode text-secondary opacity-20 transform rotate-90 origin-top-right translate-x-full">SOCIALMEDIA</div>
+        <h2 class="text-4xl md:text-6xl font-display font-black uppercase tracking-tighter mb-16 text-outline">Social Media<br/>Archive</h2>
         
-        <a href="mailto:hello@erdemcevik.com" class="inline-block bg-accent text-background px-12 py-6 font-display font-black text-2xl md:text-4xl uppercase tracking-widest hover:bg-primary transition-colors shadow-[8px_8px_0px_#F5F5F5]">
-          GET IN TOUCH
-        </a>
-        
-        <div class="mt-32 flex flex-col md:flex-row justify-between items-center text-secondary font-bold uppercase tracking-widest text-sm border-t border-white/10 pt-8">
-          <div class="flex gap-6 mb-6 md:mb-0">
-            <a href="#" class="hover:text-accent transition-colors">Instagram</a>
-            <a href="#" class="hover:text-accent transition-colors">Behance</a>
-            <a href="#" class="hover:text-accent transition-colors">LinkedIn</a>
+        <div class="masonry-grid">
+          <!-- Masonry Item 1 (9:16) -->
+          <div class="masonry-item relative raw-border group">
+            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800&auto=format&fit=crop" class="w-full h-auto grayscale group-hover:grayscale-0 transition-all duration-300" alt="Social Media 1">
+            <div class="absolute bottom-4 right-4 bg-background px-3 py-1 text-primary font-bold text-xs uppercase">Instagram Story</div>
           </div>
-          <p>© 2026 ERDEM ÇEVİK / ALL RIGHTS RESERVED.</p>
+          <!-- Masonry Item 2 (1:1) -->
+          <div class="masonry-item relative raw-border group">
+            <img src="https://images.unsplash.com/photo-1523398002811-999aa8d9512e?q=80&w=800&auto=format&fit=crop" class="w-full h-auto grayscale group-hover:grayscale-0 transition-all duration-300" alt="Social Media 2">
+          </div>
+          <!-- Masonry Item 3 (4:5) -->
+          <div class="masonry-item relative raw-border group">
+            <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?q=80&w=800&auto=format&fit=crop" class="w-full h-auto grayscale group-hover:grayscale-0 transition-all duration-300" alt="Social Media 3">
+            <div class="absolute top-4 left-4 tape-strip"></div>
+          </div>
+          <!-- Masonry Item 4 (1:1) -->
+          <div class="masonry-item relative raw-border group">
+            <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=800&auto=format&fit=crop" class="w-full h-auto grayscale group-hover:grayscale-0 transition-all duration-300" alt="Social Media 4">
+          </div>
+          <!-- Masonry Item 5 (9:16) -->
+          <div class="masonry-item relative raw-border group">
+            <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=800&auto=format&fit=crop" class="w-full h-auto grayscale group-hover:grayscale-0 transition-all duration-300" alt="Social Media 5">
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section (Dynamic Marquee Background) -->
+      <section id="contact" class="py-40 px-6 md:px-20 text-center relative overflow-hidden bg-background">
+        <!-- Animated Background Elements -->
+        <div class="animated-noise"></div>
+        <div class="marquee-container">
+          <div class="marquee-text">LET'S MAKE NOISE LET'S MAKE NOISE LET'S MAKE NOISE LET'S MAKE NOISE</div>
+        </div>
+        
+        <div class="relative z-10">
+          <h2 class="text-5xl md:text-[8rem] font-display font-black uppercase tracking-tighter mb-10 text-primary drop-shadow-[4px_4px_0_#2E2E2E]">
+            LET'S MAKE<br/>NOISE
+          </h2>
+          <p class="text-primary/70 text-xl mb-12 max-w-2xl mx-auto font-medium">Projeleriniz için teklif almak veya bir fikri tartışmak için doğrudan ulaşın.</p>
+          
+          <a href="mailto:hello@erdemcevik.com" class="inline-block bg-accent text-background px-12 py-6 font-display font-black text-2xl md:text-4xl uppercase tracking-widest hover:bg-primary transition-colors shadow-[8px_8px_0px_#FDFBF7]">
+            GET IN TOUCH
+          </a>
+          
+          <div class="mt-32 flex flex-col md:flex-row justify-between items-center text-secondary font-bold uppercase tracking-widest text-sm border-t border-secondary/50 pt-8">
+            <div class="flex gap-6 mb-6 md:mb-0">
+              <a href="#" class="hover:text-accent transition-colors">Instagram</a>
+              <a href="#" class="hover:text-accent transition-colors">Behance</a>
+              <a href="#" class="hover:text-accent transition-colors">LinkedIn</a>
+            </div>
+            <p class="text-primary/50">© 2026 ERDEM ÇEVİK / ALL RIGHTS RESERVED.</p>
+          </div>
         </div>
       </section>
 

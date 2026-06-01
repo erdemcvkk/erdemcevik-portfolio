@@ -8,9 +8,9 @@ export default {
     extend: {
       colors: {
         background: "#0A0A0A", // Siyah arkaplan
-        primary: "#F5F5F5",    // Kırık Beyaz metin
+        primary: "#FDFBF7",    // Off-White metin
         accent: "#FF5A1F",     // Nike Turuncusu CTA
-        secondary: "#555555",  // Gri destekleyici
+        secondary: "#2E2E2E",  // Beton Grisi destekleyici
         extra: "#111111"       // Biraz daha açık siyah kartlar
       },
       fontFamily: {
