@@ -1,52 +1,50 @@
 @import "tailwindcss";
 @config "../tailwind.config.js";
 
-/* Fontshare: Clash Display */
+/* ─── Fontshare: Clash Display ─── */
 @import url('https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700,1&display=swap');
+/* ─── Google: Permanent Marker (Graffiti) ─── */
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 
+/* ════════════════════════════════
+   BASE LAYER
+════════════════════════════════ */
 @layer base {
   body {
     @apply bg-background text-primary antialiased;
     overflow-x: hidden;
+    /* Site geneli hafif tahıl doku */
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjAwIDIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZmlsdGVyIGlkPSJub2lzZUZpbHRlciI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuNjUiIG51bU9jdGF2ZXM9IjMiIHN0aXRjaFRpbGVzPSJzdGl0Y2giLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWx0ZXI9InVybCgjbm9pc2VGaWx0ZXIpIiBvcGFjaXR5PSIwLjA3Ii8+PC9zdmc+');
+    background-repeat: repeat;
   }
-  
-  html.lenis {
-    height: auto;
-  }
-  .lenis.lenis-smooth {
-    scroll-behavior: auto;
-  }
-  .lenis.lenis-smooth [data-lenis-prevent] {
-    overscroll-behavior: contain;
-  }
-  .lenis.lenis-stopped {
-    overflow: hidden;
-  }
-  .lenis.lenis-scrolling iframe {
-    pointer-events: none;
-  }
+
+  html.lenis { height: auto; }
+  .lenis.lenis-smooth { scroll-behavior: auto; }
+  .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+  .lenis.lenis-stopped { overflow: hidden; }
+  .lenis.lenis-scrolling iframe { pointer-events: none; }
 }
 
+/* ════════════════════════════════
+   UTILITIES LAYER
+════════════════════════════════ */
 @layer utilities {
+
+  /* ── Outline Text ── */
   .text-outline {
     -webkit-text-stroke: 1.5px #FDFBF7;
     color: transparent;
   }
-
   .text-outline-accent {
     -webkit-text-stroke: 1.5px #FF5A1F;
     color: transparent;
   }
-  
-  .hide-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
-  .hide-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
 
-  /* Grain Texture Filter */
+  /* ── Hide Scrollbar ── */
+  .hide-scrollbar::-webkit-scrollbar { display: none; }
+  .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+  /* ── Grain Filter (project cards) ── */
   .grain-filter {
     filter: grayscale(100%) contrast(120%) brightness(90%);
     position: relative;
@@ -65,14 +63,15 @@
     z-index: 10;
   }
 
-  /* Hiphop Tape / Caution Tape Effect */
+  /* ── Caution / Hiphop Tape ── */
   .caution-tape {
     @apply bg-accent text-background font-display font-bold uppercase tracking-widest px-4 py-1 inline-block transform -rotate-2;
     box-shadow: 2px 2px 0px #FDFBF7;
     z-index: 20;
     position: relative;
   }
-  
+
+  /* ── Tape Strip ── */
   .tape-strip {
     position: absolute;
     width: 120px;
@@ -85,27 +84,80 @@
     mix-blend-mode: overlay;
   }
 
-  /* Barcode details */
+  /* ── Barcode ── */
   .barcode {
     font-family: 'Libre Barcode 39', cursive, sans-serif;
     font-size: 2.5rem;
     letter-spacing: -2px;
   }
+
+  /* ── Graffiti Font ── */
+  .font-graffiti {
+    font-family: 'Permanent Marker', cursive;
+  }
+
+  /* ── Torn Edges ── */
+  .torn-edges {
+    clip-path: polygon(2% 1%, 98% 3%, 99% 98%, 1% 96%);
+  }
 }
 
-/* Glitch Hover Effect */
+/* ════════════════════════════════
+   NAVBAR — HIPHOP STYLE
+════════════════════════════════ */
+nav {
+  border-bottom: 2px solid #2E2E2E !important;
+  /* Her sayfanın tepesinde aşınmış beton çizgisi */
+  background-image: linear-gradient(to right, rgba(255,90,31,0.04), transparent, rgba(255,90,31,0.04));
+}
+
+/* Nav linklerine hover'da turuncu alt çizgi gelsin */
+nav a:not(.bg-accent) {
+  position: relative;
+}
+nav a:not(.bg-accent)::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #FF5A1F;
+  transition: width 0.3s ease;
+}
+nav a:not(.bg-accent):hover::after {
+  width: 100%;
+}
+
+/* ════════════════════════════════
+   SECTION DIVIDERS — HIPHOP TAPE LINES
+════════════════════════════════ */
+.section-anim {
+  position: relative;
+}
+
+/* Her section'ın üstüne faint bir turuncu çizgi ekleyelim */
+section + section::before {
+  content: '';
+  display: block;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #FF5A1F 30%, #FF5A1F 70%, transparent);
+  opacity: 0.3;
+  margin-bottom: 0;
+}
+
+/* ════════════════════════════════
+   GLITCH HOVER EFFECT
+════════════════════════════════ */
 .glitch-hover {
   position: relative;
   display: inline-block;
 }
-.glitch-hover::before,
-.glitch-hover::after {
+.glitch-hover::before, .glitch-hover::after {
   content: attr(data-text);
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   opacity: 0;
 }
 .glitch-hover:hover::before {
@@ -122,23 +174,24 @@
   animation: glitch-anim 2.5s infinite linear alternate-reverse;
   opacity: 1;
 }
-
 @keyframes glitch-anim {
-  0% { clip: rect(10px, 9999px, 86px, 0); }
-  5% { clip: rect(61px, 9999px, 82px, 0); }
-  10% { clip: rect(98px, 9999px, 20px, 0); }
-  15% { clip: rect(51px, 9999px, 60px, 0); }
+  0%   { clip: rect(10px, 9999px, 86px, 0); }
+  5%   { clip: rect(61px, 9999px, 82px, 0); }
+  10%  { clip: rect(98px, 9999px, 20px, 0); }
+  15%  { clip: rect(51px, 9999px, 60px, 0); }
   100% { clip: rect(10px, 9999px, 86px, 0); }
 }
 @keyframes glitch-anim-2 {
-  0% { clip: rect(29px, 9999px, 83px, 0); }
-  5% { clip: rect(81px, 9999px, 22px, 0); }
-  10% { clip: rect(18px, 9999px, 90px, 0); }
-  15% { clip: rect(61px, 9999px, 60px, 0); }
+  0%   { clip: rect(29px, 9999px, 83px, 0); }
+  5%   { clip: rect(81px, 9999px, 22px, 0); }
+  10%  { clip: rect(18px, 9999px, 90px, 0); }
+  15%  { clip: rect(61px, 9999px, 60px, 0); }
   100% { clip: rect(29px, 9999px, 83px, 0); }
 }
 
-/* Torn Edge / Rough Border */
+/* ════════════════════════════════
+   RAW BORDER — PROJECT CARDS
+════════════════════════════════ */
 .raw-border {
   border: 3px solid #2E2E2E;
   box-shadow: 6px 6px 0px #FF5A1F;
@@ -150,45 +203,29 @@
   border-color: #FDFBF7;
 }
 
-/* Video Hover Container */
-.video-hover-container {
-  position: relative;
-  overflow: hidden;
-}
+/* ════════════════════════════════
+   VIDEO HOVER
+════════════════════════════════ */
+.video-hover-container { position: relative; overflow: hidden; }
 .video-hover-container img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 2;
-  transition: opacity 0.4s ease;
+  position: absolute; top: 0; left: 0;
+  width: 100%; height: 100%; object-fit: cover;
+  z-index: 2; transition: opacity 0.4s ease;
 }
 .video-hover-container video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 1;
+  position: absolute; top: 0; left: 0;
+  width: 100%; height: 100%; object-fit: cover; z-index: 1;
 }
-.video-hover-container:hover img {
-  opacity: 0;
-}
+.video-hover-container:hover img { opacity: 0; }
 
-/* Moving Marquee Text */
+/* ════════════════════════════════
+   SCROLLING MARQUEE (CONTACT)
+════════════════════════════════ */
 .marquee-container {
-  width: 100%;
-  overflow: hidden;
-  white-space: nowrap;
-  position: absolute;
-  top: 50%;
+  width: 100%; overflow: hidden; white-space: nowrap;
+  position: absolute; top: 50%;
   transform: translateY(-50%);
-  z-index: 0;
-  opacity: 0.03;
-  pointer-events: none;
+  z-index: 0; opacity: 0.03; pointer-events: none;
 }
 .marquee-text {
   display: inline-block;
@@ -198,61 +235,121 @@
   animation: marquee 30s linear infinite;
 }
 @keyframes marquee {
-  0% { transform: translateX(0); }
+  0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
-/* Animated Noise Background */
+/* ── Horizontal hiphop ticker (below navbar) ── */
+.hiphop-ticker {
+  display: flex;
+  white-space: nowrap;
+  animation: ticker 25s linear infinite;
+}
+@keyframes ticker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ════════════════════════════════
+   ANIMATED NOISE BG (CONTACT)
+════════════════════════════════ */
 .animated-noise {
-  position: absolute;
-  inset: -100%;
-  width: 300%;
-  height: 300%;
+  position: absolute; inset: -100%;
+  width: 300%; height: 300%;
   background-image: url('data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjAwIDIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZmlsdGVyIGlkPSJub2lzZUZpbHRlciI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuNjUiIG51bU9jdGF2ZXM9IjMiIHN0aXRjaFRpbGVzPSJzdGl0Y2giLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWx0ZXI9InVybCgjbm9pc2VGaWx0ZXIpIiBvcGFjaXR5PSIwLjE1Ii8+PC9zdmc+');
   animation: noise-move 0.2s infinite;
-  pointer-events: none;
-  opacity: 0.1;
-  z-index: 0;
+  pointer-events: none; opacity: 0.1; z-index: 0;
 }
 @keyframes noise-move {
-  0% { transform: translate(0, 0); }
-  10% { transform: translate(-5%, -5%); }
-  20% { transform: translate(-10%, 5%); }
-  30% { transform: translate(5%, -10%); }
-  40% { transform: translate(-5%, 15%); }
-  50% { transform: translate(-10%, 5%); }
-  60% { transform: translate(15%, 0); }
-  70% { transform: translate(0, 10%); }
-  80% { transform: translate(-15%, 0); }
-  90% { transform: translate(10%, 5%); }
+  0%   { transform: translate(0, 0); }
+  10%  { transform: translate(-5%, -5%); }
+  20%  { transform: translate(-10%, 5%); }
+  30%  { transform: translate(5%, -10%); }
+  40%  { transform: translate(-5%, 15%); }
+  50%  { transform: translate(-10%, 5%); }
+  60%  { transform: translate(15%, 0); }
+  70%  { transform: translate(0, 10%); }
+  80%  { transform: translate(-15%, 0); }
+  90%  { transform: translate(10%, 5%); }
   100% { transform: translate(5%, 0); }
 }
 
-/* Masonry Layout */
-.masonry-grid {
-  column-count: 1;
-  column-gap: 2rem;
+/* ════════════════════════════════
+   MASONRY LAYOUT
+════════════════════════════════ */
+.masonry-grid { column-count: 1; column-gap: 2rem; }
+@media (min-width: 768px)  { .masonry-grid { column-count: 2; } }
+@media (min-width: 1024px) { .masonry-grid { column-count: 3; } }
+.masonry-item { break-inside: avoid; margin-bottom: 2rem; }
+
+/* ════════════════════════════════
+   HIPHOP ACCENT ELEMENTS
+════════════════════════════════ */
+
+/* Spray Paint splatter behind section headings */
+.spray-accent {
+  position: relative;
+  display: inline-block;
 }
-@media (min-width: 768px) {
-  .masonry-grid {
-    column-count: 2;
-  }
-}
-@media (min-width: 1024px) {
-  .masonry-grid {
-    column-count: 3;
-  }
-}
-.masonry-item {
-  break-inside: avoid;
-  margin-bottom: 2rem;
+.spray-accent::before {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: -8px;
+  right: -8px;
+  height: 6px;
+  background: #FF5A1F;
+  transform: skewX(-20deg);
+  opacity: 0.9;
+  z-index: -1;
 }
 
-/* Graffiti Font & Brutalist Image Sculpting */
-.font-graffiti {
-  font-family: 'Permanent Marker', cursive;
+/* Spinning star */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.animate-spin-slow { animation: spin-slow 6s linear infinite; }
+
+/* Neon glow on accent elements */
+.neon-glow {
+  text-shadow: 0 0 10px rgba(255, 90, 31, 0.6), 0 0 30px rgba(255, 90, 31, 0.3);
 }
 
-.torn-edges {
-  clip-path: polygon(2% 1%, 98% 3%, 99% 98%, 1% 96%);
+/* Section Number (01, 02...) Hip-hop album track style */
+.track-num {
+  font-family: 'Clash Display', sans-serif;
+  font-weight: 900;
+  font-size: clamp(5rem, 12vw, 10rem);
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255,90,31,0.15);
+  position: absolute;
+  right: -1rem;
+  top: -2rem;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Street underline: thick rough brush stroke */
+.street-underline {
+  text-decoration: none;
+  background-image: linear-gradient(to right, #FF5A1F, #FF5A1F);
+  background-size: 100% 4px;
+  background-repeat: no-repeat;
+  background-position: 0 95%;
+  transition: background-size 0.3s ease;
+}
+.street-underline:hover {
+  background-size: 100% 100%;
+  color: #0A0A0A;
+}
+
+/* ── "SIDE A / SIDE B" vinyl crease across page ── */
+.vinyl-crease {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #FF5A1F 20%, #2E2E2E 50%, #FF5A1F 80%, transparent);
+  opacity: 0.4;
+  margin: 0;
 }
