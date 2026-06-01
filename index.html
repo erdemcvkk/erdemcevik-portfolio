@@ -5,14 +5,12 @@
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <!-- SEO Meta Tags -->
-  <title>Erdem Çevik | Premium Creative Studio & Visual Storyteller</title>
-  <meta name="description" content="Luxury Streetwear Studio konseptiyle Erdem Çevik'in premium portfolyosu. Markaları dikkat çekici tasarımlarla öne çıkarıyorum." />
+  <title>Erdem Çevik | Creative Director</title>
+  <meta name="description" content="Luxury Street Culture + Creative Director" />
   
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="./src/style.css" />
 </head>
@@ -23,136 +21,127 @@
 
   <!-- Loading Screen -->
   <div id="loading-screen" class="fixed inset-0 z-50 bg-background flex items-center justify-center">
-    <div class="text-4xl md:text-6xl font-black tracking-tighter text-transparent" style="-webkit-text-stroke: 1px #0A0A0A;">
-      <span id="loading-logo" class="opacity-0">ERDEM ÇEVİK</span>
+    <div class="text-6xl md:text-[8rem] font-display font-bold uppercase tracking-tighter text-transparent" style="-webkit-text-stroke: 2px #0A0A0A;">
+      <span id="loading-logo" class="opacity-0">ERDEM</span>
     </div>
   </div>
 
   <main id="smooth-wrapper">
     <div id="smooth-content">
       
-      <!-- Navbar (Minimal) -->
-      <nav class="fixed top-0 w-full p-6 md:p-10 z-40 flex justify-between items-center mix-blend-difference text-primary">
-        <div class="text-xl font-bold tracking-widest uppercase">E. ÇEVİK</div>
+      <!-- Navbar -->
+      <nav class="fixed top-0 w-full p-6 md:p-10 z-40 flex justify-between items-center mix-blend-difference text-accent">
+        <div class="text-2xl font-display font-bold tracking-widest uppercase">ERDEM ÇEVİK</div>
         <button class="hover-target text-sm tracking-widest uppercase font-semibold">Menu</button>
       </nav>
 
       <!-- Hero Section -->
-      <section class="h-screen w-full flex flex-col justify-center px-6 md:px-20 relative">
-        <div class="absolute inset-0 z-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1595180631626-d922bc308705?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center bg-no-repeat"></div>
-        <div class="relative z-10">
-          <h2 class="text-accent text-sm md:text-lg font-semibold tracking-[0.2em] uppercase mb-4 hero-anim">Creative Studio</h2>
-          <h1 class="text-6xl md:text-[10rem] font-black uppercase leading-none tracking-tighter mb-6 hero-anim">Erdem<br/>Çevik</h1>
-          <p class="text-secondary max-w-lg text-lg md:text-2xl mb-10 hero-anim">Creative Designer & Visual Storyteller. Markaları dikkat çekici tasarımlarla öne çıkarıyorum.</p>
+      <section class="min-h-screen w-full flex flex-col md:flex-row relative pt-32 md:pt-0">
+        
+        <!-- Left: Devasa Tipografi -->
+        <div class="w-full md:w-1/2 flex flex-col justify-center px-6 md:pl-20 relative z-10">
+          <h1 class="text-[8rem] md:text-[14rem] font-display font-black uppercase leading-[0.8] tracking-tighter mb-12 text-primary hero-anim">
+            ERDEM<br/>ÇEVİK
+          </h1>
           
-          <div class="flex gap-6 hero-anim">
-            <a href="#portfolio" class="hover-target px-8 py-4 bg-primary text-background font-bold uppercase tracking-widest hover:bg-accent hover:text-background transition-colors duration-300">Çalışmaları Gör</a>
-            <a href="#contact" class="hover-target px-8 py-4 border border-primary/20 text-primary font-bold uppercase tracking-widest hover:border-primary transition-colors duration-300">Teklif Al</a>
+          <div class="flex flex-col gap-2 uppercase tracking-[0.3em] font-semibold text-sm md:text-base text-secondary hero-anim">
+            <span>Creative Designer</span>
+            <span>Brand Builder</span>
+            <span>Visual Storyteller</span>
+          </div>
+          
+          <div class="mt-16 hero-anim">
+             <p class="max-w-md text-primary font-medium leading-relaxed">
+               Merging luxury aesthetics with street culture dynamics. I don't just design interfaces, I build premium brand experiences.
+             </p>
           </div>
         </div>
-      </section>
-
-      <!-- About Section -->
-      <section id="about" class="py-32 px-6 md:px-20 border-t border-black/10">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-20">
-          <div>
-            <h3 class="text-4xl md:text-6xl font-bold uppercase tracking-tight mb-8">Marka Kimliği<br/><span class="text-outline">Yeniden Tanımlanıyor</span></h3>
-            <p class="text-secondary text-lg leading-relaxed mb-8">Modern editorial tasarım ve hype culture dinamiklerini birleştirerek, sıradanlığın dışında, premium ve kalıcı marka deneyimleri inşa ediyorum. Sadece tasarım yapmıyor, bir hikaye anlatıyorum.</p>
-          </div>
-          <div class="grid grid-cols-2 gap-6">
-            <div class="glassmorphism p-6 flex flex-col justify-center">
-              <span class="text-accent text-sm uppercase tracking-widest mb-2">01</span>
-              <h4 class="text-xl font-bold">Grafik Tasarım</h4>
-            </div>
-            <div class="glassmorphism p-6 flex flex-col justify-center">
-              <span class="text-accent text-sm uppercase tracking-widest mb-2">02</span>
-              <h4 class="text-xl font-bold">Marka Kimliği</h4>
-            </div>
-            <div class="glassmorphism p-6 flex flex-col justify-center">
-              <span class="text-accent text-sm uppercase tracking-widest mb-2">03</span>
-              <h4 class="text-xl font-bold">Sosyal Medya</h4>
-            </div>
-            <div class="glassmorphism p-6 flex flex-col justify-center">
-              <span class="text-accent text-sm uppercase tracking-widest mb-2">04</span>
-              <h4 class="text-xl font-bold">Reklam Tasarımı</h4>
+        
+        <!-- Right: Portre (Siyah Beyaz & Grain) -->
+        <div class="w-full md:w-1/2 h-[60vh] md:h-screen p-6 md:p-12 flex justify-end items-end hero-anim">
+          <div class="w-full h-full relative overflow-hidden grain-filter bg-black">
+            <!-- Placeholder olarak uygun bir editoryal görsel -->
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=2000&auto=format&fit=crop" alt="Erdem Çevik Portrait" class="object-cover w-full h-full opacity-80" />
+            <div class="absolute bottom-6 left-6 text-accent uppercase tracking-widest text-xs font-bold mix-blend-difference">
+              Est. 2026 / Worldwide
             </div>
           </div>
         </div>
         
-        <div class="mt-20 flex flex-wrap gap-4 text-secondary uppercase tracking-widest text-xs font-semibold">
-          <span class="px-4 py-2 border border-black/10 rounded-full">Photoshop</span>
-          <span class="px-4 py-2 border border-black/10 rounded-full">Illustrator</span>
-          <span class="px-4 py-2 border border-black/10 rounded-full">Figma</span>
-          <span class="px-4 py-2 border border-black/10 rounded-full">After Effects</span>
-          <span class="px-4 py-2 border border-black/10 rounded-full">Midjourney</span>
-          <span class="px-4 py-2 border border-black/10 rounded-full">AI Tools</span>
+      </section>
+
+      <!-- Portfolio Section (List View) -->
+      <section id="portfolio" class="py-32 relative">
+        <div class="px-6 md:px-20 mb-20">
+          <h2 class="text-sm font-semibold uppercase tracking-[0.3em] text-secondary">Selected Archive</h2>
+        </div>
+
+        <div class="w-full border-t border-black/20 portfolio-list relative">
+          
+          <!-- Item 1 -->
+          <div class="portfolio-item relative border-b border-black/20 py-12 md:py-20 px-6 md:px-20 flex flex-col md:flex-row justify-between md:items-end group hover:bg-black/5 transition-colors cursor-pointer hover-target" data-img="https://images.unsplash.com/photo-1542315059-19d20c38210f?q=80&w=1000&auto=format&fit=crop">
+            <h3 class="text-6xl md:text-[8rem] font-display font-bold uppercase tracking-tighter leading-none group-hover:pl-4 transition-all duration-500">NIKE CAMPAIGN</h3>
+            <div class="text-right mt-6 md:mt-0">
+              <span class="block text-2xl font-display font-semibold">2026</span>
+              <span class="block uppercase tracking-widest text-xs font-bold text-secondary">Creative Direction</span>
+            </div>
+          </div>
+          
+          <!-- Item 2 -->
+          <div class="portfolio-item relative border-b border-black/20 py-12 md:py-20 px-6 md:px-20 flex flex-col md:flex-row justify-between md:items-end group hover:bg-black/5 transition-colors cursor-pointer hover-target" data-img="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=1000&auto=format&fit=crop">
+            <h3 class="text-6xl md:text-[8rem] font-display font-bold uppercase tracking-tighter leading-none group-hover:pl-4 transition-all duration-500">OFF-WHITE AESTHETICS</h3>
+            <div class="text-right mt-6 md:mt-0">
+              <span class="block text-2xl font-display font-semibold">2025</span>
+              <span class="block uppercase tracking-widest text-xs font-bold text-secondary">Branding</span>
+            </div>
+          </div>
+          
+          <!-- Item 3 -->
+          <div class="portfolio-item relative border-b border-black/20 py-12 md:py-20 px-6 md:px-20 flex flex-col md:flex-row justify-between md:items-end group hover:bg-black/5 transition-colors cursor-pointer hover-target" data-img="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1000&auto=format&fit=crop">
+            <h3 class="text-6xl md:text-[8rem] font-display font-bold uppercase tracking-tighter leading-none group-hover:pl-4 transition-all duration-500">CACTUS JACK</h3>
+            <div class="text-right mt-6 md:mt-0">
+              <span class="block text-2xl font-display font-semibold">2024</span>
+              <span class="block uppercase tracking-widest text-xs font-bold text-secondary">Album Cover</span>
+            </div>
+          </div>
+
+          <!-- The Floating Image Reveal -->
+          <img src="" alt="Project Preview" class="hover-reveal-img" id="reveal-img" />
+          
         </div>
       </section>
 
-      <!-- Featured Projects Section -->
-      <section id="portfolio" class="py-32 bg-black/5">
-        <div class="px-6 md:px-20 mb-20 flex justify-between items-end">
-          <h2 class="text-5xl md:text-8xl font-black uppercase tracking-tighter">Seçilmiş<br/>İşler</h2>
-          <a href="#" class="hover-target text-accent uppercase tracking-widest font-bold border-b border-accent pb-1">Tümünü Gör</a>
+      <!-- Brutalist About / Text Marquee -->
+      <section class="py-32 overflow-hidden bg-primary text-accent">
+        <div class="whitespace-nowrap flex text-[10rem] md:text-[15rem] font-display font-black uppercase tracking-tighter leading-none opacity-10">
+          <span>CREATIVE DIRECTOR — VISUAL STORYTELLER — </span>
+          <span>CREATIVE DIRECTOR — VISUAL STORYTELLER — </span>
         </div>
-
-        <div class="px-6 md:px-20 space-y-32">
-          <!-- Project 1 -->
-          <div class="group relative block project-card">
-            <div class="relative h-[60vh] w-full overflow-hidden bg-black mb-6">
-              <img src="https://images.unsplash.com/photo-1542315059-19d20c38210f?q=80&w=2000&auto=format&fit=crop" alt="Project 1" class="object-cover w-full h-full opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]" />
-            </div>
-            <div class="flex justify-between items-start">
-              <div>
-                <h3 class="text-3xl font-bold uppercase tracking-tight mb-2">Fear of God x Nike</h3>
-                <p class="text-secondary">Konsept Kampanya Tasarımı</p>
-              </div>
-              <div class="text-right">
-                <span class="block text-accent uppercase tracking-widest text-sm mb-1">Creative Direction</span>
-                <span class="block text-black/50 text-sm">2023</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project 2 -->
-          <div class="group relative block project-card">
-            <div class="relative h-[60vh] w-full overflow-hidden bg-black mb-6">
-              <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=2000&auto=format&fit=crop" alt="Project 2" class="object-cover w-full h-full opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]" />
-            </div>
-            <div class="flex justify-between items-start">
-              <div>
-                <h3 class="text-3xl font-bold uppercase tracking-tight mb-2">Off-White Aesthetics</h3>
-                <p class="text-secondary">Marka Kimliği & Paketleme</p>
-              </div>
-              <div class="text-right">
-                <span class="block text-accent uppercase tracking-widest text-sm mb-1">Branding</span>
-                <span class="block text-black/50 text-sm">2023</span>
-              </div>
-            </div>
-          </div>
+        <div class="px-6 md:px-20 mt-20 md:mt-[-10rem] relative z-10 max-w-4xl mx-auto text-center">
+          <p class="text-3xl md:text-5xl font-display font-medium leading-tight">
+            I build brands that resonate with culture. Mixing high fashion minimalism with street level authenticity.
+          </p>
         </div>
       </section>
 
       <!-- Contact Section -->
-      <section id="contact" class="py-32 px-6 md:px-20 border-t border-black/10">
-        <div class="max-w-4xl mx-auto text-center">
-          <h2 class="text-5xl md:text-8xl font-black uppercase tracking-tighter mb-8">Projeni<br/><span class="text-outline">Başlat</span></h2>
-          <p class="text-secondary text-xl mb-12">Hemen iletişime geç, markanı bir sonraki seviyeye taşıyalım.</p>
+      <section id="contact" class="py-40 px-6 md:px-20">
+        <div class="max-w-6xl mx-auto text-center">
+          <h2 class="text-sm font-semibold uppercase tracking-[0.3em] text-secondary mb-12">Let's Work</h2>
+          <a href="mailto:hello@erdemcevik.com" class="hover-target inline-block text-5xl md:text-[8rem] font-display font-black uppercase tracking-tighter text-primary hover:text-accent transition-colors duration-500">
+            START A PROJECT
+          </a>
           
-          <a href="mailto:hello@erdemcevik.com" class="hover-target inline-block text-3xl md:text-5xl font-bold text-primary border-b-2 border-accent pb-2 hover:text-accent transition-colors">hello@erdemcevik.com</a>
-          
-          <div class="mt-20 flex justify-center gap-8">
-            <a href="#" class="hover-target text-secondary hover:text-primary uppercase tracking-widest font-semibold transition-colors">Instagram</a>
-            <a href="#" class="hover-target text-secondary hover:text-primary uppercase tracking-widest font-semibold transition-colors">Behance</a>
-            <a href="#" class="hover-target text-secondary hover:text-primary uppercase tracking-widest font-semibold transition-colors">LinkedIn</a>
+          <div class="mt-32 flex flex-col md:flex-row justify-between items-center pt-10 border-t border-black/20">
+            <div class="flex gap-8 mb-8 md:mb-0">
+              <a href="#" class="hover-target uppercase tracking-widest font-bold text-sm hover:opacity-50 transition-opacity">Instagram</a>
+              <a href="#" class="hover-target uppercase tracking-widest font-bold text-sm hover:opacity-50 transition-opacity">Behance</a>
+              <a href="#" class="hover-target uppercase tracking-widest font-bold text-sm hover:opacity-50 transition-opacity">LinkedIn</a>
+            </div>
+            <p class="uppercase tracking-widest font-bold text-sm text-secondary">© 2026 ERDEM ÇEVİK STUDIO</p>
           </div>
         </div>
       </section>
-
-      <footer class="py-6 px-6 md:px-20 border-t border-black/10 flex justify-between text-sm text-secondary uppercase tracking-widest">
-        <p>&copy; 2024 Erdem Çevik. All rights reserved.</p>
-        <p>Premium Creative Studio</p>
-      </footer>
 
     </div>
   </main>

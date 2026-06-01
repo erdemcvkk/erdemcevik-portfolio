@@ -10,69 +10,53 @@ export function initAnimations() {
   
   tl.to('#loading-logo', {
     opacity: 1,
-    duration: 1,
+    duration: 0.8,
     ease: "power2.inOut"
   })
   .to('#loading-logo', {
     opacity: 0,
-    duration: 0.8,
-    delay: 0.5,
+    duration: 0.6,
+    delay: 0.4,
     ease: "power2.inOut"
   })
   .to('#loading-screen', {
     yPercent: -100,
-    duration: 1,
+    duration: 0.8,
     ease: "power4.inOut"
   })
   // 2. Hero Reveal
   .from('.hero-anim', {
-    y: 50,
+    y: 100,
     opacity: 0,
-    duration: 1,
+    duration: 1.2,
     stagger: 0.1,
-    ease: "power3.out"
-  }, "-=0.5");
+    ease: "power4.out"
+  }, "-=0.4");
 
-  // 3. Scroll Animations for About Section
-  gsap.from('#about h3', {
-    scrollTrigger: {
-      trigger: '#about',
-      start: 'top 80%',
-    },
-    y: 50,
-    opacity: 0,
-    duration: 1,
-    ease: "power3.out"
-  });
+  // 3. Mouse Follow Image Reveal for Portfolio
+  const items = document.querySelectorAll('.portfolio-item');
+  const revealImg = document.getElementById('reveal-img');
 
-  gsap.from('.glassmorphism', {
-    scrollTrigger: {
-      trigger: '#about',
-      start: 'top 70%',
-    },
-    y: 50,
-    opacity: 0,
-    duration: 0.8,
-    stagger: 0.1,
-    ease: "power3.out"
-  });
-
-  // 4. Parallax effect for Project Cards
-  const projectCards = document.querySelectorAll('.project-card');
-  
-  projectCards.forEach(card => {
-    const img = card.querySelector('img');
+  if (revealImg && window.innerWidth > 768) {
     
-    gsap.to(img, {
-      scrollTrigger: {
-        trigger: card,
-        start: 'top bottom',
-        end: 'bottom top',
-        scrub: true,
-      },
-      y: 100,
-      ease: 'none'
+    // Follow Mouse
+    document.addEventListener('mousemove', (e) => {
+      gsap.to(revealImg, {
+        x: e.clientX,
+        y: e.clientY,
+        duration: 0.6,
+        ease: "power3.out"
+      });
     });
-  });
+
+    items.forEach(item => {
+      item.addEventListener('mouseenter', () => {
+        const imgUrl = item.getAttribute('data-img');
+        if(imgUrl) {
+          revealImg.src = imgUrl;
+        }
+      });
+    });
+  }
 
 }
