@@ -7,11 +7,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "#FF5A1F", // Nike Turuncusu
-        primary: "#0A0A0A",    // Siyah ana metin
-        accent: "#F5F5F5",     // Kırık Beyaz vurgu
-        secondary: "#000000",  // Tam siyah ekstra vurgular
-        extra: "#FFFFFF"
+        background: "#0A0A0A", // Siyah arkaplan
+        primary: "#F5F5F5",    // Kırık Beyaz metin
+        accent: "#FF5A1F",     // Nike Turuncusu CTA
+        secondary: "#555555",  // Gri destekleyici
+        extra: "#111111"       // Biraz daha açık siyah kartlar
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
