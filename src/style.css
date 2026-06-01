@@ -178,26 +178,6 @@
   opacity: 0;
 }
 
-/* Masonry Layout */
-.masonry-grid {
-  column-count: 1;
-  column-gap: 2rem;
-}
-@media (min-width: 768px) {
-  .masonry-grid {
-    column-count: 2;
-  }
-}
-@media (min-width: 1024px) {
-  .masonry-grid {
-    column-count: 3;
-  }
-}
-.masonry-item {
-  break-inside: avoid;
-  margin-bottom: 2rem;
-}
-
 /* Moving Marquee Text */
 .marquee-container {
   width: 100%;
@@ -246,4 +226,33 @@
   80% { transform: translate(-15%, 0); }
   90% { transform: translate(10%, 5%); }
   100% { transform: translate(5%, 0); }
+}
+
+/* Masonry Layout */
+.masonry-grid {
+  column-count: 1;
+  column-gap: 2rem;
+}
+@media (min-width: 768px) {
+  .masonry-grid {
+    column-count: 2;
+  }
+}
+@media (min-width: 1024px) {
+  .masonry-grid {
+    column-count: 3;
+  }
+}
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 2rem;
+}
+
+/* Graffiti Font & Brutalist Image Sculpting */
+.font-graffiti {
+  font-family: 'Permanent Marker', cursive;
+}
+
+.torn-edges {
+  clip-path: polygon(2% 1%, 98% 3%, 99% 98%, 1% 96%);
 }

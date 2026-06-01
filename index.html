@@ -10,7 +10,7 @@
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Libre+Barcode+39&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Libre+Barcode+39&family=Permanent+Marker&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="./src/style.css" />
 </head>
@@ -70,8 +70,14 @@
           </div>
           
           <!-- Sağ: Portre (Net Çerçeveli Mixtape Style) -->
-          <div class="col-span-1 md:col-span-5 relative hero-anim">
-            <div class="raw-border p-2 bg-extra w-full aspect-[4/5] relative grain-filter group overflow-hidden cursor-pointer">
+          <div class="col-span-1 md:col-span-5 relative hero-anim mt-10 md:mt-0">
+            <!-- Graffiti Tag 1 -->
+            <div class="absolute -top-6 -left-10 z-50 transform -rotate-12 font-graffiti text-5xl md:text-7xl text-accent drop-shadow-[2px_2px_0px_#0A0A0A] opacity-90 group-hover:scale-110 transition-transform">
+              Designer
+            </div>
+            
+            <!-- Torn/Sculpted Image Container -->
+            <div class="raw-border p-2 bg-extra w-full aspect-[4/5] relative grain-filter group overflow-hidden cursor-pointer torn-edges">
               <img src="/erdem-cvk.PNG" alt="Erdem Çevik" class="object-cover w-full h-full grayscale contrast-125 transition-transform duration-700 group-hover:scale-105" />
               
               <!-- Creative Scanline / Duotone effect on hover -->
@@ -80,12 +86,18 @@
               <div class="absolute inset-0 bg-accent mix-blend-color-burn opacity-0 group-hover:opacity-80 transition-all duration-500 pointer-events-none"></div>
 
               <!-- Mixtape Sticker -->
-              <div class="absolute bottom-4 right-4 bg-primary text-background font-bold text-xs uppercase px-2 py-1 transform rotate-3 z-30 group-hover:-rotate-3 transition-transform duration-300">
-                VOL. 2
+              <div class="absolute bottom-6 right-6 bg-primary text-background font-bold text-xs md:text-sm uppercase px-3 py-1 transform rotate-6 z-40 group-hover:-rotate-3 transition-transform duration-300">
+                STRICTLY RAW
               </div>
               
               <!-- Tape detail -->
               <div class="absolute -top-2 -left-2 tape-strip -rotate-12 z-30 opacity-80"></div>
+              <div class="absolute -bottom-2 -right-2 tape-strip rotate-12 z-30 opacity-80 w-24"></div>
+            </div>
+            
+            <!-- Graffiti Tag 2 -->
+            <div class="absolute bottom-16 -left-12 z-50 transform -rotate-6 font-graffiti text-4xl md:text-6xl text-background drop-shadow-[2px_2px_0px_#FF5A1F] opacity-90">
+              Visual Killa
             </div>
           </div>
           
