@@ -69,35 +69,38 @@
             </div>
           </div>
           
-          <!-- Sağ: Portre (Net Çerçeveli Mixtape Style) -->
-          <div class="col-span-1 md:col-span-5 relative hero-anim mt-10 md:mt-0">
-            <!-- Graffiti Tag 1 (Moved Down) -->
-            <div class="absolute top-16 md:top-24 -left-6 md:-left-14 z-50 transform -rotate-12 font-graffiti text-6xl md:text-8xl text-accent drop-shadow-[4px_4px_0px_#0A0A0A] opacity-85 group-hover:scale-110 group-hover:-rotate-6 transition-all duration-500 pointer-events-none">
-              Designer
-            </div>
+          <!-- Sağ: Portre (Poster/Editorial Style) -->
+          <div class="col-span-1 md:col-span-5 relative hero-anim mt-10 md:mt-0 flex justify-center">
             
             <!-- Torn/Sculpted Image Container -->
-            <div class="raw-border p-2 bg-extra w-full aspect-[4/5] relative grain-filter group overflow-hidden cursor-pointer torn-edges">
+            <div class="raw-border bg-extra w-full aspect-[4/5] relative grain-filter group overflow-hidden cursor-pointer torn-edges">
               <img src="/erdem-cvk.PNG" alt="Erdem Çevik" class="object-cover w-full h-full grayscale contrast-125 transition-transform duration-700 group-hover:scale-105" />
               
               <!-- Creative Scanline / Duotone effect on hover -->
               <div class="absolute inset-0 opacity-40 mix-blend-overlay pointer-events-none group-hover:opacity-20 transition-opacity duration-500" style="background: linear-gradient(to bottom, transparent 50%, rgba(255, 90, 31, 0.4) 51%); background-size: 100% 4px;"></div>
-              
               <div class="absolute inset-0 bg-accent mix-blend-color-burn opacity-0 group-hover:opacity-80 transition-all duration-500 pointer-events-none"></div>
 
-              <!-- Mixtape Sticker -->
-              <div class="absolute bottom-6 right-6 bg-primary text-background font-bold text-xs md:text-sm uppercase px-3 py-1 transform rotate-6 z-40 group-hover:-rotate-3 transition-transform duration-300">
-                STRICTLY RAW
+              <!-- Huge Vertical Text (Left Edge) -->
+              <div class="absolute top-0 bottom-0 left-2 md:left-6 flex flex-col justify-end pb-12 z-20 mix-blend-difference opacity-90 pointer-events-none overflow-visible">
+                <div class="transform -rotate-90 origin-bottom-left text-[5rem] md:text-[6.5rem] font-display font-black text-background uppercase tracking-tighter leading-[0.8] whitespace-nowrap">
+                  ERDEM CEVIK
+                </div>
+              </div>
+
+              <!-- Eye Focus Square -->
+              <div class="absolute border-[6px] border-accent z-30 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6 mix-blend-normal" style="top: 38%; right: 28%; width: 22%; aspect-ratio: 1/1;"></div>
+              
+              <!-- Vertical Red Line -->
+              <div class="absolute bg-accent z-20" style="top: 50%; right: 12%; width: 4px; height: 30%;"></div>
+              
+              <!-- Graphic Text Right Bottom -->
+              <div class="absolute bottom-8 right-6 md:right-8 z-30 text-right flex flex-col items-end pointer-events-none">
+                <span class="text-accent font-display font-black text-3xl md:text-5xl uppercase leading-none drop-shadow-[2px_2px_0px_#0A0A0A]">MAKE</span>
+                <span class="text-accent font-display font-black text-3xl md:text-5xl uppercase leading-none drop-shadow-[2px_2px_0px_#0A0A0A]">YOUR</span>
+                <span class="text-accent font-display font-black text-4xl md:text-6xl uppercase leading-none drop-shadow-[2px_2px_0px_#0A0A0A]">RULES</span>
+                <span class="text-[#FDFBF7] font-graffiti text-3xl md:text-4xl transform -rotate-12 mt-2 drop-shadow-[3px_3px_0px_#FF5A1F] opacity-95">Designer</span>
               </div>
               
-              <!-- Tape detail -->
-              <div class="absolute top-4 -left-4 tape-strip -rotate-6 z-30 opacity-80 w-32"></div>
-              <div class="absolute -bottom-2 -right-4 tape-strip rotate-12 z-30 opacity-80 w-28"></div>
-            </div>
-            
-            <!-- Graffiti Tag 2 (Balanced to the right) -->
-            <div class="absolute bottom-10 md:bottom-16 -right-4 md:-right-12 z-50 transform rotate-6 font-graffiti text-5xl md:text-7xl text-[#FDFBF7] drop-shadow-[3px_3px_0px_#FF5A1F] opacity-90 group-hover:scale-110 transition-all duration-500 pointer-events-none">
-              Killa
             </div>
           </div>
           
