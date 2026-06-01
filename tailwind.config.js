@@ -7,11 +7,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "#050505",
-        primary: "#FFFFFF",
-        accent: "#D4AF37",
-        secondary: "#888888",
-        extra: "#FF5500"
+        background: "#F8F8F8", // Açık gri/beyaz arkaplan
+        primary: "#0A0A0A",    // Siyah ana metin
+        accent: "#FF5500",     // Turuncu vurgu rengi
+        secondary: "#555555",  // Koyu gri alt metinler
+        extra: "#000000"
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
