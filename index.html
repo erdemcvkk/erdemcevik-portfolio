@@ -71,12 +71,21 @@
           
           <!-- Sağ: Portre (Net Çerçeveli Mixtape Style) -->
           <div class="col-span-1 md:col-span-5 relative hero-anim">
-            <div class="raw-border p-2 bg-extra w-full aspect-[4/5] relative grain-filter">
-              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1000&auto=format&fit=crop" alt="Erdem Çevik" class="object-cover w-full h-full grayscale" />
+            <div class="raw-border p-2 bg-extra w-full aspect-[4/5] relative grain-filter group overflow-hidden cursor-pointer">
+              <img src="/erdem-cvk.PNG" alt="Erdem Çevik" class="object-cover w-full h-full grayscale contrast-125 transition-transform duration-700 group-hover:scale-105" />
+              
+              <!-- Creative Scanline / Duotone effect on hover -->
+              <div class="absolute inset-0 opacity-40 mix-blend-overlay pointer-events-none group-hover:opacity-20 transition-opacity duration-500" style="background: linear-gradient(to bottom, transparent 50%, rgba(255, 90, 31, 0.4) 51%); background-size: 100% 4px;"></div>
+              
+              <div class="absolute inset-0 bg-accent mix-blend-color-burn opacity-0 group-hover:opacity-80 transition-all duration-500 pointer-events-none"></div>
+
               <!-- Mixtape Sticker -->
-              <div class="absolute bottom-4 right-4 bg-primary text-background font-bold text-xs uppercase px-2 py-1 transform rotate-3">
+              <div class="absolute bottom-4 right-4 bg-primary text-background font-bold text-xs uppercase px-2 py-1 transform rotate-3 z-30 group-hover:-rotate-3 transition-transform duration-300">
                 VOL. 2
               </div>
+              
+              <!-- Tape detail -->
+              <div class="absolute -top-2 -left-2 tape-strip -rotate-12 z-30 opacity-80"></div>
             </div>
           </div>
           
