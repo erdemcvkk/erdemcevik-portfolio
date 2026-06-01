@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spectre Adworks | Kurumsal Kimlik</title>
+  <meta name="description" content="Spectre Adworks Kurumsal Kimlik Tasarımı — Brand Identity Case Study" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Libre+Barcode+39&family=Permanent+Marker&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./src/style.css" />
+
+  <style>
+    /* ── Spectre Sayfasına Özel Stiller ── */
+
+    /* Soğuk, metalik bir arka plan paleti */
+    body {
+      background-color: #0C0C0F;
+      background-image:
+        linear-gradient(to bottom right, rgba(120,120,160,0.04) 0%, transparent 60%),
+        url('data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjAwIDIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZmlsdGVyIGlkPSJub2lzZUZpbHRlciI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuNjUiIG51bU9jdGF2ZXM9IjMiIHN0aXRjaFRpbGVzPSJzdGl0Y2giLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWx0ZXI9InVybCgjbm9pc2VGaWx0ZXIpIiBvcGFjaXR5PSIwLjA4Ii8+PC9zdmc+');
+    }
+
+    /* Spectre aksan rengi: Soğuk beyaz / ghost gümüşü */
+    :root {
+      --spectre: #E8E8F0;
+      --spectre-dim: #6B6B88;
+      --spectre-glow: rgba(200, 200, 230, 0.12);
+    }
+
+    /* Özel border: ince gümüş çizgi */
+    .spectre-border {
+      border: 1px solid rgba(200, 200, 230, 0.2);
+      box-shadow: 0 0 30px var(--spectre-glow), 4px 4px 0 rgba(200,200,230,0.1);
+      transition: box-shadow 0.4s ease, transform 0.4s ease;
+    }
+    .spectre-border:hover {
+      box-shadow: 0 0 60px var(--spectre-glow), 8px 8px 0 rgba(200,200,230,0.2);
+      transform: translate(-3px, -3px);
+    }
+
+    /* Ghost glow on heading */
+    .spectre-title {
+      text-shadow: 0 0 80px rgba(200,200,230,0.2), 0 0 20px rgba(200,200,230,0.1);
+    }
+
+    /* Ayna çizgisi ayraç */
+    .mirror-line {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--spectre) 30%, var(--spectre-dim) 50%, var(--spectre) 70%, transparent);
+      opacity: 0.25;
+    }
+
+    /* Hover'da renkli görünüm */
+    .spectre-img {
+      filter: grayscale(80%) brightness(0.85) contrast(1.1);
+      transition: filter 0.6s ease, transform 0.6s ease;
+    }
+    .spectre-img:hover {
+      filter: grayscale(0%) brightness(1) contrast(1);
+      transform: scale(1.02);
+    }
+
+    /* Full-bleed masonry grid */
+    .spectre-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    @media (min-width: 768px) {
+      .spectre-grid {
+        grid-template-columns: repeat(12, 1fr);
+      }
+    }
+
+    /* Span helpers */
+    .col-8  { grid-column: span 8; }
+    .col-4  { grid-column: span 4; }
+    .col-6  { grid-column: span 6; }
+    .col-12 { grid-column: span 12; }
+    .col-7  { grid-column: span 7; }
+    .col-5  { grid-column: span 5; }
+
+    /* Floating label */
+    .float-label {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--spectre-dim);
+      border: 1px solid rgba(200,200,230,0.2);
+      padding: 0.25rem 0.75rem;
+      backdrop-filter: blur(4px);
+    }
+
+    /* Nav accent line override for this page */
+    nav a:not(.bg-accent)::after { background: var(--spectre); }
+
+    /* Ghost caution tag */
+    .ghost-tag {
+      background: transparent;
+      border: 1px solid var(--spectre);
+      color: var(--spectre);
+      font-family: 'Clash Display', sans-serif;
+      font-weight: 700;
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      padding: 0.3rem 1rem;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body class="text-primary overflow-x-hidden font-sans">
+
+  <!-- Nav -->
+  <nav class="fixed top-0 w-full p-4 md:p-6 z-40 bg-[#0C0C0F]/90 backdrop-blur-md border-b border-secondary/30 flex justify-between items-center transition-all">
+    <a href="index.html" class="text-2xl font-display font-bold tracking-widest uppercase hover:text-accent transition-colors">← Geri Dön</a>
+    <a href="#contact" class="border border-[var(--spectre)] text-[var(--spectre)] px-6 py-2 font-bold uppercase tracking-widest hover:bg-[var(--spectre)] hover:text-[#0C0C0F] transition-all text-sm">İletişime Geç</a>
+  </nav>
+
+  <main>
+
+    <!-- ── HERO ── -->
+    <section class="pt-44 pb-24 px-6 md:px-20 relative min-h-[70vh] flex flex-col justify-center">
+
+      <!-- Arka plan ghost text -->
+      <div class="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
+        <span class="font-display font-black text-[18vw] text-white opacity-[0.025] uppercase tracking-tighter select-none">SPECTRE</span>
+      </div>
+
+      <div class="relative z-10 max-w-5xl">
+        <div class="flex items-center gap-4 mb-6">
+          <span class="ghost-tag">Kurumsal Kimlik</span>
+          <span class="ghost-tag">Brand Identity</span>
+          <div class="mirror-line flex-1"></div>
+        </div>
+
+        <h1 class="spectre-title font-display font-black uppercase leading-[0.85] tracking-tighter mb-8" style="font-size: clamp(4rem, 12vw, 10rem); color: var(--spectre);">
+          SPECTRE<br/>
+          <span class="text-outline" style="-webkit-text-stroke-color: rgba(200,200,230,0.4);">ADWORKS</span>
+        </h1>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mt-12 border-t pt-10" style="border-color: rgba(200,200,230,0.15);">
+          <div>
+            <p class="text-xs uppercase tracking-[0.3em] mb-2" style="color: var(--spectre-dim);">Client</p>
+            <p class="text-xl font-display font-bold" style="color: var(--spectre);">Spectre Adworks</p>
+          </div>
+          <div>
+            <p class="text-xs uppercase tracking-[0.3em] mb-2" style="color: var(--spectre-dim);">Kapsam</p>
+            <p class="text-base font-medium text-primary/70">Kurumsal Kimlik, Logo Sistemi,<br/>Sunum Tasarımı</p>
+          </div>
+          <div>
+            <p class="text-xs uppercase tracking-[0.3em] mb-2" style="color: var(--spectre-dim);">Yıl</p>
+            <p class="text-xl font-display font-bold" style="color: var(--spectre);">2026</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Barcode -->
+      <div class="absolute bottom-8 right-8 barcode opacity-10" style="color: var(--spectre);">SPECTRE2026</div>
+    </section>
+
+    <!-- Mirror line -->
+    <div class="mirror-line mx-6 md:mx-20"></div>
+
+    <!-- ── BRIEF ── -->
+    <section class="py-20 px-6 md:px-20">
+      <div class="max-w-3xl text-lg md:text-xl text-primary/65 leading-relaxed font-medium">
+        <p class="mb-6">
+          Spectre Adworks için kurumsal kimlik çalışmasında, reklam dünyasının gürültülü atmosferini aşan; şık, rafine ve güce sahip bir marka dili inşa ettik.
+        </p>
+        <p>
+          Gölge ve ışık arasındaki o ince dengeyi yakalamak — markanın adını taşıyan "Hayalet" metaforuyla örtüşen minimalist bir estetik yaratmak — bu projenin özünü oluşturdu.
+        </p>
+      </div>
+    </section>
+
+    <!-- ── GALLERY ── -->
+    <section class="px-6 md:px-20 pb-32">
+
+      <!-- ROW 1: Büyük + Küçük -->
+      <div class="spectre-grid mb-6">
+        <div class="col-8 relative overflow-hidden spectre-border">
+          <img src="/Spectre Adworks - Sunum - JPEG/Spectre-Adworks---Sunum---1.jpg"
+               alt="Spectre Sunum 1" class="spectre-img w-full h-full object-cover block">
+          <div class="float-label">01 — Cover</div>
+        </div>
+        <div class="col-4 relative overflow-hidden spectre-border">
+          <img src="/Spectre Adworks - Sunum - JPEG/Spectre-Adworks---Sunum---2.jpg"
+               alt="Spectre Sunum 2" class="spectre-img w-full h-full object-cover block">
+          <div class="float-label">02 — Identity</div>
+        </div>
+      </div>
+
+      <!-- ROW 2: Full Width -->
+      <div class="mb-6 relative overflow-hidden spectre-border">
+        <img src="/Spectre Adworks - Sunum - JPEG/Spectre-Adworks---Sunum---3.jpg"
+             alt="Spectre Sunum 3" class="spectre-img w-full block">
+        <div class="float-label">03 — Brand System</div>
+      </div>
+
+      <!-- ROW 3: Üçlü -->
+      <div class="spectre-grid mb-6">
+        <div class="col-4 relative overflow-hidden spectre-border">
+          <img src="/Spectre Adworks - Sunum - JPEG/Spectre-Adworks---Sunum---4.jpg"
+               alt="Spectre Sunum 4" class="spectre-img w-full h-full object-cover block">
+          <div class="float-label">04</div>
+        </div>
+        <div class="col-4 relative overflow-hidden spectre-border">
+          <img src="/Spectre Adworks - Sunum - JPEG/Spectre-Adworks---Sunum---5.jpg"
+               alt="Spectre Sunum 5" class="spectre-img w-full h-full object-cover block">
+          <div class="float-label">05 — Color</div>
+        </div>
+        <div class="col-4 relative overflow-hidden spectre-border">
+          <img src="/Spectre Adworks - Sunum - JPEG/Spectre-Adworks---Sunum---6.jpg"
+               alt="Spectre Sunum 6" class="spectre-img w-full h-full object-cover block">
+          <div class="float-label">06 — Type</div>
+        </div>
+      </div>
+
+      <!-- Mirror line -->
+      <div class="mirror-line my-10"></div>
+
+      <!-- ROW 4: Asimetrik -->
+      <div class="spectre-grid mb-6">
+        <div class="col-5 relative overflow-hidden spectre-border">
+          <img src="/Spectre Adworks - Sunum - JPEG/Spectre-Adworks---Sunum---7.jpg"
+               alt="Spectre Sunum 7" class="spectre-img w-full h-full object-cover block">
+          <div class="float-label">07 — Mockup</div>
+        </div>
+        <div class="col-7 relative overflow-hidden spectre-border">
+          <img src="/Spectre Adworks - Sunum - JPEG/Spectre-Adworks---Sunum---8.jpg"
+               alt="Spectre Sunum 8" class="spectre-img w-full h-full object-cover block">
+          <div class="float-label">08 — Applications</div>
+        </div>
+      </div>
+
+      <!-- ROW 5: Eşit İkili -->
+      <div class="spectre-grid">
+        <div class="col-6 relative overflow-hidden spectre-border">
+          <img src="/Spectre Adworks - Sunum - JPEG/Spectre-Adworks---Sunum---9.jpg"
+               alt="Spectre Sunum 9" class="spectre-img w-full h-full object-cover block">
+          <div class="float-label">09 — Stationery</div>
+        </div>
+        <div class="col-6 relative overflow-hidden spectre-border">
+          <img src="/Spectre Adworks - Sunum - JPEG/Spectre-Adworks---Sunum---10.jpg"
+               alt="Spectre Sunum 10" class="spectre-img w-full h-full object-cover block">
+          <div class="float-label">10 — Final</div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ── CONTACT ── -->
+    <div class="mirror-line mx-6 md:mx-20"></div>
+    <section id="contact" class="py-32 px-6 md:px-20 text-center relative overflow-hidden">
+      <div class="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
+        <span class="font-display font-black text-[20vw] text-white opacity-[0.02] uppercase tracking-tighter select-none">GHOST</span>
+      </div>
+      <div class="relative z-10">
+        <p class="text-xs uppercase tracking-[0.4em] mb-6" style="color: var(--spectre-dim);">— Benzer bir proje için</p>
+        <h2 class="font-display font-black uppercase tracking-tighter mb-12 spectre-title"
+            style="font-size: clamp(3rem, 8vw, 7rem); color: var(--spectre);">
+          Seninle<br/>Çalışalım
+        </h2>
+        <a href="mailto:hello@erdemcevik.com"
+           class="inline-block border-2 px-16 py-6 font-display font-black text-2xl uppercase tracking-widest transition-all duration-300 hover:scale-105"
+           style="border-color: var(--spectre); color: var(--spectre); box-shadow: 0 0 40px var(--spectre-glow); hover:background: var(--spectre);">
+          GET IN TOUCH
+        </a>
+        <div class="mt-20 pt-8 border-t flex flex-col md:flex-row justify-between items-center text-xs uppercase tracking-widest" style="border-color: rgba(200,200,230,0.1); color: var(--spectre-dim);">
+          <div class="flex gap-8 mb-4 md:mb-0">
+            <a href="#" class="hover:text-primary transition-colors">Instagram</a>
+            <a href="#" class="hover:text-primary transition-colors">Behance</a>
+            <a href="#" class="hover:text-primary transition-colors">LinkedIn</a>
+          </div>
+          <p>© 2026 ERDEM ÇEVİK / ALL RIGHTS RESERVED.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

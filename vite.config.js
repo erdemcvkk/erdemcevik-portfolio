@@ -9,7 +9,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
-        lidio: resolve(__dirname, 'lidio.html')
+        lidio: resolve(__dirname, 'lidio.html'),
+        spectre: resolve(__dirname, 'spectre.html')
       }
     }
   }
