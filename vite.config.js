@@ -10,7 +10,8 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         lidio: resolve(__dirname, 'lidio.html'),
-        spectre: resolve(__dirname, 'spectre.html')
+        spectre: resolve(__dirname, 'spectre.html'),
+        surucu: resolve(__dirname, 'surucu-kurslari.html')
       }
     }
   }

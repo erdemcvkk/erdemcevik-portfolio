@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sürücü Kursları | Social Media Design</title>
+  <meta name="description" content="Marmara & Yaman Sürücü Kursları — Instagram Social Media Design Case Study" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Libre+Barcode+39&family=Permanent+Marker&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./src/style.css" />
+
+  <style>
+    /* ═══════════════════════════
+       PHONE MOCKUP — Instagram Style
+    ═══════════════════════════ */
+    .phone-frame {
+      position: relative;
+      width: 100%;
+      max-width: 340px;
+      margin: 0 auto;
+    }
+    .phone-frame::before {
+      content: '';
+      display: block;
+      width: 100%;
+      padding-top: 216%; /* ~9:19.5 phone ratio */
+      background: #1a1a1a;
+      border-radius: 42px;
+      border: 3px solid #333;
+      box-shadow:
+        inset 0 0 0 2px #222,
+        0 30px 80px rgba(0,0,0,0.8),
+        0 0 0 1px #111;
+      position: absolute;
+      top: 0; left: 0; right: 0;
+    }
+    .phone-screen {
+      position: absolute;
+      top: 6%;
+      left: 5%;
+      right: 5%;
+      bottom: 4%;
+      border-radius: 32px;
+      overflow: hidden;
+      background: #000;
+    }
+
+    /* ── Instagram-style feed grid ── */
+    .insta-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+    .insta-grid .post {
+      aspect-ratio: 1/1;
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+    }
+    .insta-grid .post img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: grayscale(20%) brightness(0.9);
+      transition: filter 0.4s ease, transform 0.4s ease;
+    }
+    .insta-grid .post:hover img {
+      filter: grayscale(0%) brightness(1);
+      transform: scale(1.06);
+    }
+
+    /* ── Full-size card gallery ── */
+    .social-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+    @media (min-width: 768px) {
+      .social-gallery { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (min-width: 1024px) {
+      .social-gallery { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    .social-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 2px;
+      aspect-ratio: 1/1;
+      cursor: pointer;
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
+    }
+    .social-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+      border-color: rgba(255,255,255,0.15);
+    }
+    .social-card img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: brightness(0.85);
+      transition: filter 0.4s ease, transform 0.4s ease;
+    }
+    .social-card:hover img {
+      filter: brightness(1);
+      transform: scale(1.04);
+    }
+    .social-card .post-num {
+      position: absolute;
+      bottom: 8px;
+      right: 10px;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* ── Brand color: Marmara = Blue, Yaman = Red ── */
+    .brand-marmara { --brand: #1E6FD9; --brand-dim: rgba(30,111,217,0.15); }
+    .brand-yaman   { --brand: #D92B2B; --brand-dim: rgba(217,43,43,0.15); }
+
+    .brand-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--brand-dim);
+      border: 1px solid var(--brand);
+      padding: 0.3rem 1rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--brand);
+      border-radius: 999px;
+    }
+    .brand-pill::before {
+      content: '';
+      width: 7px; height: 7px;
+      background: var(--brand);
+      border-radius: 50%;
+    }
+
+    .brand-line {
+      height: 3px;
+      background: linear-gradient(to right, var(--brand), transparent);
+      margin-bottom: 2rem;
+    }
+
+    /* Section divider */
+    .firm-divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(to right, transparent, #2E2E2E 30%, #2E2E2E 70%, transparent);
+      margin: 6rem 0;
+      position: relative;
+    }
+    .firm-divider::after {
+      content: '✦';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: #0A0A0A;
+      padding: 0 1rem;
+      color: #2E2E2E;
+      font-size: 1rem;
+    }
+
+    /* Stat chips */
+    .stat-chip {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 0.75rem 1.5rem;
+      text-align: center;
+    }
+
+    /* Lightbox overlay */
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.95);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    #lightbox.active { display: flex; }
+    #lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+      box-shadow: 0 0 80px rgba(0,0,0,0.8);
+    }
+    #lightbox-close {
+      position: absolute;
+      top: 1.5rem; right: 2rem;
+      color: white; font-size: 2.5rem;
+      cursor: pointer; line-height: 1;
+      font-family: sans-serif;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+    #lightbox-close:hover { opacity: 1; }
+  </style>
+</head>
+<body class="bg-background text-primary overflow-x-hidden font-sans">
+
+  <!-- Lightbox -->
+  <div id="lightbox">
+    <span id="lightbox-close">&times;</span>
+    <img id="lightbox-img" src="" alt="">
+  </div>
+
+  <!-- Nav -->
+  <nav class="fixed top-0 w-full p-4 md:p-6 z-40 bg-background/90 backdrop-blur-md border-b border-secondary/50 flex justify-between items-center transition-all">
+    <a href="index.html" class="text-2xl font-display font-bold tracking-widest uppercase hover:text-accent transition-colors">← Geri Dön</a>
+    <div class="flex items-center gap-3">
+      <a href="#marmara" class="hidden md:block text-sm font-bold uppercase tracking-widest hover:text-accent transition-colors">Marmara</a>
+      <span class="hidden md:block text-secondary">·</span>
+      <a href="#yaman" class="hidden md:block text-sm font-bold uppercase tracking-widest hover:text-accent transition-colors">Yaman</a>
+      <a href="index.html#contact" class="bg-accent text-background px-6 py-2 font-bold uppercase tracking-widest hover:bg-primary transition-colors text-sm">İletişime Geç</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ═══════════════════════════
+         HERO
+    ═══════════════════════════ -->
+    <section class="pt-40 pb-20 px-6 md:px-20 relative">
+      <div class="absolute top-32 left-6 md:left-20 text-secondary barcode opacity-20">SOCIAL2026</div>
+
+      <div class="mb-4">
+        <span class="caution-tape text-xs">Social Media Design</span>
+      </div>
+      <h1 class="text-5xl md:text-[7rem] font-display font-black uppercase leading-[0.85] tracking-tighter mb-6">
+        SÜRÜCÜ<br/><span class="text-outline">KURSLARI</span>
+      </h1>
+      <p class="max-w-xl text-primary/60 text-lg font-medium leading-relaxed mb-12">
+        Marmara ve Yaman Sürücü Kursları için üretilen Instagram sosyal medya içerikleri. İki farklı marka kimliği, iki farklı görsel dil.
+      </p>
+
+      <!-- Stats -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-2xl">
+        <div class="stat-chip">
+          <div class="text-2xl font-display font-black text-accent">2</div>
+          <div class="text-xs uppercase tracking-widest text-primary/50 mt-1">Firma</div>
+        </div>
+        <div class="stat-chip">
+          <div class="text-2xl font-display font-black text-accent">18</div>
+          <div class="text-xs uppercase tracking-widest text-primary/50 mt-1">Görsel</div>
+        </div>
+        <div class="stat-chip">
+          <div class="text-2xl font-display font-black text-accent">IG</div>
+          <div class="text-xs uppercase tracking-widest text-primary/50 mt-1">Platform</div>
+        </div>
+        <div class="stat-chip">
+          <div class="text-2xl font-display font-black text-accent">1:1</div>
+          <div class="text-xs uppercase tracking-widest text-primary/50 mt-1">Format</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="vinyl-crease"></div>
+
+    <!-- ═══════════════════════════
+         MARMARA BÖLÜMÜ
+    ═══════════════════════════ -->
+    <section id="marmara" class="py-24 px-6 md:px-20 brand-marmara">
+      <div class="brand-line"></div>
+
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+        <div>
+          <div class="brand-pill mb-4">Firma 01 — Instagram</div>
+          <h2 class="text-4xl md:text-7xl font-display font-black uppercase tracking-tighter leading-none">
+            MARMARA<br/>
+            <span style="-webkit-text-stroke: 1.5px var(--brand); color: transparent;">SÜRÜCÜ KURSU</span>
+          </h2>
+        </div>
+        <p class="max-w-sm text-primary/50 text-base leading-relaxed">
+          Profesyonel sürüş eğitimini yansıtan, güven veren ve modern bir Instagram görsel dili oluşturuldu.
+        </p>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="social-gallery">
+        <div class="social-card" onclick="openLightbox(this)">
+          <img src="/Sürücü Kurslari/Marmara/marmara (1).png" alt="Marmara 1">
+          <div class="post-num">#01</div>
+        </div>
+        <div class="social-card" onclick="openLightbox(this)">
+          <img src="/Sürücü Kurslari/Marmara/marmara (2).png" alt="Marmara 2">
+          <div class="post-num">#02</div>
+        </div>
+        <div class="social-card" onclick="openLightbox(this)">
+          <img src="/Sürücü Kurslari/Marmara/marmara (3).png" alt="Marmara 3">
+          <div class="post-num">#03</div>
+        </div>
+        <div class="social-card" onclick="openLightbox(this)">
+          <img src="/Sürücü Kurslari/Marmara/marmara (4).png" alt="Marmara 4">
+          <div class="post-num">#04</div>
+        </div>
+        <div class="social-card" onclick="openLightbox(this)">
+          <img src="/Sürücü Kurslari/Marmara/marmara (5).png" alt="Marmara 5">
+          <div class="post-num">#05</div>
+        </div>
+        <div class="social-card" onclick="openLightbox(this)">
+          <img src="/Sürücü Kurslari/Marmara/marmara (6).png" alt="Marmara 6">
+          <div class="post-num">#06</div>
+        </div>
+        <div class="social-card" onclick="openLightbox(this)">
+          <img src="/Sürücü Kurslari/Marmara/marmara (7).png" alt="Marmara 7">
+          <div class="post-num">#07</div>
+        </div>
+        <div class="social-card" onclick="openLightbox(this)">
+          <img src="/Sürücü Kurslari/Marmara/marmara (8).png" alt="Marmara 8">
+          <div class="post-num">#08</div>
+        </div>
+        <div class="social-card" onclick="openLightbox(this)">
+          <img src="/Sürücü Kurslari/Marmara/marmara (9).png" alt="Marmara 9">
+          <div class="post-num">#09</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="firm-divider mx-6 md:mx-20"></div>
+
+    <!-- ═══════════════════════════
+         YAMAN BÖLÜMÜ
+    ═══════════════════════════ -->
+    <section id="yaman" class="py-24 px-6 md:px-20 brand-yaman">
+      <div class="brand-line"></div>
+
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+        <div>
+          <div class="brand-pill mb-4">Firma 02 — Instagram</div>
+          <h2 class="text-4xl md:text-7xl font-display font-black uppercase tracking-tighter leading-none">
+            YAMAN<br/>
+            <span style="-webkit-text-stroke: 1.5px var(--brand); color: transparent;">SÜRÜCÜ KURSU</span>
+          </h2>
+        </div>
+        <p class="max-w-sm text-primary/50 text-base leading-relaxed">
+          Dinamik, enerjik ve dikkat çekici bir görsel dil — Yaman'ın genç ve iddialı kimliğini yansıtacak şekilde tasarlandı.
+        </p>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="social-gallery">
+        <div class="social-card" onclick="openLightbox(this)">
+          <img src="/Sürücü Kurslari/Yaman/yaman (1).png" alt="Yaman 1">
+          <div class="post-num">#01</div>
+        </div>
+        <div class="social-card" onclick="openLightbox(this)">
+          <img src="/Sürücü Kurslari/Yaman/yaman (2).png" alt="Yaman 2">
+          <div class="post-num">#02</div>
+        </div>
+        <div class="social-card" onclick="openLightbox(this)">
+          <img src="/Sürücü Kurslari/Yaman/yaman (3).png" alt="Yaman 3">
+          <div class="post-num">#03</div>
+        </div>
+        <div class="social-card" onclick="openLightbox(this)">
+          <img src="/Sürücü Kurslari/Yaman/yaman (4).png" alt="Yaman 4">
+          <div class="post-num">#04</div>
+        </div>
+        <div class="social-card" onclick="openLightbox(this)">
+          <img src="/Sürücü Kurslari/Yaman/yaman (5).png" alt="Yaman 5">
+          <div class="post-num">#05</div>
+        </div>
+        <div class="social-card" onclick="openLightbox(this)">
+          <img src="/Sürücü Kurslari/Yaman/yaman (6).png" alt="Yaman 6">
+          <div class="post-num">#06</div>
+        </div>
+        <div class="social-card" onclick="openLightbox(this)">
+          <img src="/Sürücü Kurslari/Yaman/yaman (7).png" alt="Yaman 7">
+          <div class="post-num">#07</div>
+        </div>
+        <div class="social-card" onclick="openLightbox(this)">
+          <img src="/Sürücü Kurslari/Yaman/yaman (8).png" alt="Yaman 8">
+          <div class="post-num">#08</div>
+        </div>
+        <div class="social-card" onclick="openLightbox(this)">
+          <img src="/Sürücü Kurslari/Yaman/yaman (9).png" alt="Yaman 9">
+          <div class="post-num">#09</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="vinyl-crease"></div>
+
+    <!-- ═══════════════════════════
+         CONTACT
+    ═══════════════════════════ -->
+    <section id="contact" class="py-32 px-6 md:px-20 text-center relative overflow-hidden">
+      <div class="animated-noise"></div>
+      <div class="marquee-container">
+        <div class="marquee-text">LET'S MAKE NOISE LET'S MAKE NOISE LET'S MAKE NOISE LET'S MAKE NOISE</div>
+      </div>
+      <div class="relative z-10">
+        <span class="text-accent font-display font-bold text-sm uppercase tracking-[0.3em] mb-4 block">— TRACK 03 / OUTRO</span>
+        <h2 class="text-5xl md:text-[6rem] font-display font-black uppercase tracking-tighter mb-10 text-primary drop-shadow-[4px_4px_0_#2E2E2E]">
+          SENINLE<br/>ÇALIŞALIM
+        </h2>
+        <a href="mailto:hello@erdemcevik.com" class="inline-block bg-accent text-background px-12 py-6 font-display font-black text-2xl md:text-3xl uppercase tracking-widest hover:bg-primary transition-colors shadow-[8px_8px_0px_#FDFBF7]">
+          GET IN TOUCH
+        </a>
+        <div class="mt-20 flex flex-col md:flex-row justify-between items-center text-secondary font-bold uppercase tracking-widest text-sm border-t border-secondary/50 pt-8">
+          <div class="flex gap-6 mb-6 md:mb-0">
+            <a href="#" class="hover:text-accent transition-colors">Instagram</a>
+            <a href="#" class="hover:text-accent transition-colors">Behance</a>
+            <a href="#" class="hover:text-accent transition-colors">LinkedIn</a>
+          </div>
+          <p class="text-primary/50">© 2026 ERDEM ÇEVİK / ALL RIGHTS RESERVED.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Lightbox JS -->
+  <script>
+    function openLightbox(card) {
+      const img = card.querySelector('img');
+      document.getElementById('lightbox-img').src = img.src;
+      document.getElementById('lightbox').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    document.getElementById('lightbox-close').addEventListener('click', () => {
+      document.getElementById('lightbox').classList.remove('active');
+      document.body.style.overflow = '';
+    });
+    document.getElementById('lightbox').addEventListener('click', (e) => {
+      if (e.target === document.getElementById('lightbox')) {
+        document.getElementById('lightbox').classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  </script>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
