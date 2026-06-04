@@ -244,19 +244,52 @@
       z-index: 10;
       width: 240px;
       flex-shrink: 0;
+      perspective: 1000px;
+    }
+    .phone-shadow {
+      position: absolute;
+      bottom: -32px;
+      left: 50%;
+      transform: translateX(-50%) rotateX(80deg) scale(0.85);
+      width: 190px;
+      height: 35px;
+      background: radial-gradient(ellipse at center, rgba(0,0,0,0.8) 0%, transparent 70%);
+      filter: blur(8px);
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.8;
+      transition: transform 0.2s ease-out, opacity 0.2s ease-out;
     }
     .phone-frame {
       position: relative;
       width: 240px;
       height: 490px;
-      background: #0f0f0f;
+      background: #0d0d0d;
       border-radius: 40px;
       padding: 10px;
       box-shadow:
-        inset 0 0 2px 2px rgba(255,255,255,0.15),
-        0 25px 50px -12px rgba(0,0,0,0.8),
-        0 0 60px var(--glow-color, rgba(30,111,217,0.3));
-      border: 1px solid #2d2d2d;
+        inset 0 0 1px 2px rgba(255,255,255,0.18),
+        0 25px 60px -10px rgba(0,0,0,0.9),
+        0 0 50px var(--glow-color, rgba(30,111,217,0.25));
+      border: 1.5px solid #282828;
+      transform-style: preserve-3d;
+      transform: rotateY(-12deg) rotateX(6deg) rotateZ(-1.5deg);
+      transition: transform 0.15s ease-out, box-shadow 0.3s ease;
+      z-index: 2;
+    }
+    /* Metallic/Glass gradient rim */
+    .phone-frame::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: 42px;
+      background: linear-gradient(135deg, 
+        rgba(255,255,255,0.3) 0%, 
+        rgba(255,255,255,0.02) 40%, 
+        var(--glow-color, rgba(30,111,217,0.3)) 70%, 
+        rgba(255,255,255,0.2) 100%);
+      z-index: -1;
+      pointer-events: none;
     }
     .phone-screen {
       position: relative;
@@ -671,6 +704,7 @@
 
         <!-- Center phone -->
         <div class="mockup-center">
+          <div class="phone-shadow"></div>
           <div class="phone-frame">
             <!-- Buttons -->
             <div class="phone-btn phone-btn-power"></div>
@@ -838,6 +872,7 @@
         <div class="float-card"><img src="/surucu-kurslari/yaman/yaman (2).png" alt=""></div>
         <div class="float-card"><img src="/surucu-kurslari/yaman/yaman (4).png" alt=""></div>
         <div class="mockup-center">
+          <div class="phone-shadow"></div>
           <div class="phone-frame">
             <!-- Buttons -->
             <div class="phone-btn phone-btn-power"></div>
@@ -1019,6 +1054,50 @@
         document.getElementById('lightbox').classList.remove('active');
         document.body.style.overflow = '';
       }
+    });
+
+    // 3D Phone Tilt Interaction
+    document.querySelectorAll('.showcase-scene').forEach(scene => {
+      const phone = scene.querySelector('.phone-frame');
+      const shadow = scene.querySelector('.phone-shadow');
+      if (!phone) return;
+
+      scene.addEventListener('mousemove', (e) => {
+        const rect = scene.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        
+        // Tilt phone up to 18 degrees
+        const rotY = (x / (rect.width / 2)) * 18;
+        const rotX = -(y / (rect.height / 2)) * 18;
+        
+        phone.style.transform = `rotateY(${rotY}deg) rotateX(${rotX}deg) rotateZ(${-rotY * 0.15}deg) scale(1.02)`;
+        phone.style.boxShadow = `
+          inset 0 0 1px 2px rgba(255,255,255,0.25),
+          0 40px 80px -10px rgba(0,0,0,0.95),
+          ${-rotY * 1.5}px ${-rotX * 1.5}px 60px var(--glow-color, rgba(30,111,217,0.3))
+        `;
+        
+        // Move and fade shadow
+        if (shadow) {
+          shadow.style.transform = `translateX(calc(-50% + ${rotY * 0.6}px)) rotateX(80deg) scale(${0.85 + (rotX * 0.003)})`;
+          shadow.style.opacity = '0.9';
+        }
+      });
+      
+      scene.addEventListener('mouseleave', () => {
+        // Return to standard 3D isometric position
+        phone.style.transform = 'rotateY(-12deg) rotateX(6deg) rotateZ(-1.5deg) scale(1)';
+        phone.style.boxShadow = `
+          inset 0 0 1px 2px rgba(255,255,255,0.18),
+          0 25px 60px -10px rgba(0,0,0,0.9),
+          0 0 50px var(--glow-color, rgba(30,111,217,0.25))
+        `;
+        if (shadow) {
+          shadow.style.transform = 'translateX(-50%) rotateX(80deg) scale(0.85)';
+          shadow.style.opacity = '0.8';
+        }
+      });
     });
   </script>
 
