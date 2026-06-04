@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Başarı Evi | Social Media Design</title>
+  <meta name="description" content="Başarı Evi Eğitim — Instagram Social Media Design Case Study" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Libre+Barcode+39&family=Permanent+Marker&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./src/style.css" />
+
+  <style>
+    :root { --brand: #F5A623; --brand-dim: rgba(245,166,35,0.15); --glow: rgba(245,166,35,0.3); }
+
+    .brand-pill {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--brand-dim); border: 1px solid var(--brand);
+      padding: 0.3rem 1rem; font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.25em; text-transform: uppercase; color: var(--brand);
+      border-radius: 999px;
+    }
+    .brand-pill::before { content: ''; width: 7px; height: 7px; background: var(--brand); border-radius: 50%; }
+
+    .brand-line { height: 3px; background: linear-gradient(to right, var(--brand), transparent); margin-bottom: 2rem; }
+
+    .stat-chip {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+      padding: 0.75rem 1.5rem; text-align: center;
+    }
+
+    /* Social Gallery */
+    .social-gallery {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;
+    }
+    @media (min-width: 768px)  { .social-gallery { grid-template-columns: repeat(3, 1fr); } }
+    @media (min-width: 1024px) { .social-gallery { grid-template-columns: repeat(4, 1fr); } }
+
+    .social-card {
+      position: relative; overflow: hidden; border-radius: 2px;
+      aspect-ratio: 4/5; cursor: pointer;
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
+    }
+    .social-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.6); border-color: var(--brand); }
+    .social-card img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.85); transition: filter 0.4s ease, transform 0.4s ease; }
+    .social-card:hover img { filter: brightness(1); transform: scale(1.04); }
+    .social-card .post-num {
+      position: absolute; bottom: 8px; right: 10px;
+      font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em; color: rgba(255,255,255,0.5);
+    }
+
+    /* 3D Showcase */
+    .showcase-scene {
+      position: relative; width: 100%; min-height: 520px;
+      display: flex; align-items: center; justify-content: center;
+      perspective: 1200px; margin-bottom: 5rem; overflow: visible;
+    }
+    .showcase-scene::before {
+      content: ''; position: absolute; width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--glow) 0%, transparent 70%);
+      pointer-events: none; animation: orb-pulse 4s ease-in-out infinite;
+    }
+    @keyframes orb-pulse { 0%,100%{transform:scale(1);opacity:.8;} 50%{transform:scale(1.15);opacity:1;} }
+
+    .mockup-center { position: relative; z-index: 10; width: 200px; flex-shrink: 0; }
+    .phone-body {
+      width: 200px; height: 400px; background: #111; border-radius: 32px;
+      border: 3px solid #333;
+      box-shadow: inset 0 0 0 2px #1a1a1a, 0 40px 100px rgba(0,0,0,0.9), 0 0 60px var(--glow);
+      overflow: hidden; position: relative;
+    }
+    .phone-body::before {
+      content: ''; position: absolute; top: 10px; left: 50%; transform: translateX(-50%);
+      width: 60px; height: 6px; background: #222; border-radius: 3px; z-index: 10;
+    }
+    .phone-insta-header {
+      padding: 24px 10px 8px; display: flex; align-items: center; gap: 8px;
+      border-bottom: 1px solid #222;
+    }
+    .phone-avatar { width: 36px; height: 36px; border-radius: 50%; overflow: hidden; flex-shrink: 0; background: var(--brand); }
+    .phone-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .phone-username { font-size: 0.55rem; font-weight: 700; color: #fff; letter-spacing: 0.05em; }
+    .phone-feed { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: #000; }
+    .phone-feed-cell { aspect-ratio: 1/1; overflow: hidden; background: #1a1a1a; }
+    .phone-feed-cell img { width: 100%; height: 100%; object-fit: cover; }
+
+    .float-card {
+      position: absolute; width: 140px; border-radius: 8px; overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.7), 0 0 30px var(--glow);
+      border: 1px solid rgba(255,255,255,0.1); aspect-ratio: 4/5;
+    }
+    .float-card img { width: 100%; height: 100%; object-fit: cover; }
+    .float-card:nth-child(1) { left: 2%;  top: 5%;    animation: float-l1 6s ease-in-out infinite; }
+    .float-card:nth-child(2) { left: 8%;  bottom: 5%; animation: float-l2 6s ease-in-out infinite -3s; }
+    .float-card:nth-child(4) { right: 2%; top: 5%;    animation: float-r1 6s ease-in-out infinite -1s; }
+    .float-card:nth-child(5) { right: 8%; bottom: 5%; animation: float-r2 6s ease-in-out infinite -4s; }
+    @keyframes float-l1 { 0%,100%{transform:rotateY(20deg) rotateZ(-8deg) translateY(0);}   50%{transform:rotateY(20deg) rotateZ(-8deg) translateY(-14px);} }
+    @keyframes float-l2 { 0%,100%{transform:rotateY(15deg) rotateZ(6deg) translateY(0);}    50%{transform:rotateY(15deg) rotateZ(6deg) translateY(-10px);} }
+    @keyframes float-r1 { 0%,100%{transform:rotateY(-20deg) rotateZ(8deg) translateY(0);}   50%{transform:rotateY(-20deg) rotateZ(8deg) translateY(-14px);} }
+    @keyframes float-r2 { 0%,100%{transform:rotateY(-15deg) rotateZ(-6deg) translateY(0);}  50%{transform:rotateY(-15deg) rotateZ(-6deg) translateY(-10px);} }
+
+    /* Lightbox */
+    #lightbox { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.95); z-index:9999; align-items:center; justify-content:center; padding:2rem; }
+    #lightbox.active { display:flex; }
+    #lightbox img { max-width:90vw; max-height:90vh; object-fit:contain; box-shadow:0 0 80px rgba(0,0,0,0.8); }
+    #lightbox-close { position:absolute; top:1.5rem; right:2rem; color:white; font-size:2.5rem; cursor:pointer; line-height:1; opacity:0.7; transition:opacity 0.2s; }
+    #lightbox-close:hover { opacity:1; }
+  </style>
+</head>
+<body class="bg-background text-primary overflow-x-hidden font-sans">
+
+  <div id="lightbox">
+    <span id="lightbox-close">&times;</span>
+    <img id="lightbox-img" src="" alt="">
+  </div>
+
+  <!-- Nav -->
+  <nav class="fixed top-0 w-full p-4 md:p-6 z-40 bg-background/90 backdrop-blur-md border-b border-secondary/50 flex justify-between items-center">
+    <a href="index.html" class="text-2xl font-display font-bold tracking-widest uppercase hover:text-accent transition-colors">← Geri Dön</a>
+    <a href="index.html#contact" class="bg-accent text-background px-6 py-2 font-bold uppercase tracking-widest hover:bg-primary transition-colors text-sm">İletişime Geç</a>
+  </nav>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="pt-40 pb-16 px-6 md:px-20 relative">
+      <div class="absolute top-32 left-6 md:left-20 text-secondary barcode opacity-20">SOCIAL2026</div>
+      <div class="mb-4">
+        <span class="caution-tape text-xs">Social Media Design · Eğitim</span>
+      </div>
+      <h1 class="text-5xl md:text-[7rem] font-display font-black uppercase leading-[0.85] tracking-tighter mb-6">
+        BAŞARI<br/><span class="text-outline">EVİ</span>
+      </h1>
+      <p class="max-w-xl text-primary/60 text-lg font-medium leading-relaxed mb-12">
+        Başarı Evi Eğitim için üretilen Instagram sosyal medya içerikleri. Öğrenci odaklı, motive edici ve dikkat çekici bir görsel dil.
+      </p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-2xl">
+        <div class="stat-chip"><div class="text-2xl font-display font-black" style="color:var(--brand);">1</div><div class="text-xs uppercase tracking-widest text-primary/50 mt-1">Firma</div></div>
+        <div class="stat-chip"><div class="text-2xl font-display font-black" style="color:var(--brand);">16</div><div class="text-xs uppercase tracking-widest text-primary/50 mt-1">Görsel</div></div>
+        <div class="stat-chip"><div class="text-2xl font-display font-black" style="color:var(--brand);">IG</div><div class="text-xs uppercase tracking-widest text-primary/50 mt-1">Platform</div></div>
+        <div class="stat-chip"><div class="text-2xl font-display font-black" style="color:var(--brand);">4:5</div><div class="text-xs uppercase tracking-widest text-primary/50 mt-1">Format</div></div>
+      </div>
+    </section>
+
+    <div class="vinyl-crease"></div>
+
+    <!-- BAŞARI EVİ BÖLÜMÜ -->
+    <section class="py-24 px-6 md:px-20">
+      <div class="brand-line"></div>
+
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+        <div>
+          <div class="brand-pill mb-4">Eğitim · Instagram</div>
+          <h2 class="text-4xl md:text-7xl font-display font-black uppercase tracking-tighter leading-none">
+            BAŞARI<br/>
+            <span style="-webkit-text-stroke: 1.5px var(--brand); color: transparent;">EVİ EĞİTİM</span>
+          </h2>
+        </div>
+        <p class="max-w-sm text-primary/50 text-base leading-relaxed">
+          Öğrencilere ilham veren, kurumun güven ve başarı vizyonunu yansıtan bir Instagram görsel kimliği oluşturuldu.
+        </p>
+      </div>
+
+      <!-- 3D Mockup Showcase -->
+      <div class="showcase-scene">
+        <div class="float-card"><img src="/basari-evi/1 (3).jpg" alt=""></div>
+        <div class="float-card"><img src="/basari-evi/1 (7).jpg" alt=""></div>
+
+        <div class="mockup-center">
+          <div class="phone-body">
+            <div class="phone-insta-header">
+              <div class="phone-avatar"><img src="/basari-evi/1 (2).jpg" alt=""></div>
+              <div>
+                <div class="phone-username">@basari_evi</div>
+                <div style="font-size:0.45rem;color:#666;margin-top:2px;">Eğitim Merkezi</div>
+              </div>
+            </div>
+            <div class="phone-feed">
+              <div class="phone-feed-cell"><img src="/basari-evi/1 (2).jpg" alt=""></div>
+              <div class="phone-feed-cell"><img src="/basari-evi/1 (3).jpg" alt=""></div>
+              <div class="phone-feed-cell"><img src="/basari-evi/1 (4).jpg" alt=""></div>
+              <div class="phone-feed-cell"><img src="/basari-evi/1 (5).jpg" alt=""></div>
+              <div class="phone-feed-cell"><img src="/basari-evi/1 (6).jpg" alt=""></div>
+              <div class="phone-feed-cell"><img src="/basari-evi/1 (7).jpg" alt=""></div>
+              <div class="phone-feed-cell"><img src="/basari-evi/1 (8).jpg" alt=""></div>
+              <div class="phone-feed-cell"><img src="/basari-evi/1 (9).jpg" alt=""></div>
+              <div class="phone-feed-cell"><img src="/basari-evi/1 (10).jpg" alt=""></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="float-card"><img src="/basari-evi/1 (11).jpg" alt=""></div>
+        <div class="float-card"><img src="/basari-evi/1 (15).jpg" alt=""></div>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="social-gallery">
+        <div class="social-card" onclick="openLightbox(this)"><img src="/basari-evi/1 (2).jpg"  alt="BE 02"><div class="post-num">#01</div></div>
+        <div class="social-card" onclick="openLightbox(this)"><img src="/basari-evi/1 (3).jpg"  alt="BE 03"><div class="post-num">#02</div></div>
+        <div class="social-card" onclick="openLightbox(this)"><img src="/basari-evi/1 (4).jpg"  alt="BE 04"><div class="post-num">#03</div></div>
+        <div class="social-card" onclick="openLightbox(this)"><img src="/basari-evi/1 (5).jpg"  alt="BE 05"><div class="post-num">#04</div></div>
+        <div class="social-card" onclick="openLightbox(this)"><img src="/basari-evi/1 (6).jpg"  alt="BE 06"><div class="post-num">#05</div></div>
+        <div class="social-card" onclick="openLightbox(this)"><img src="/basari-evi/1 (7).jpg"  alt="BE 07"><div class="post-num">#06</div></div>
+        <div class="social-card" onclick="openLightbox(this)"><img src="/basari-evi/1 (8).jpg"  alt="BE 08"><div class="post-num">#07</div></div>
+        <div class="social-card" onclick="openLightbox(this)"><img src="/basari-evi/1 (9).jpg"  alt="BE 09"><div class="post-num">#08</div></div>
+        <div class="social-card" onclick="openLightbox(this)"><img src="/basari-evi/1 (10).jpg" alt="BE 10"><div class="post-num">#09</div></div>
+        <div class="social-card" onclick="openLightbox(this)"><img src="/basari-evi/1 (11).jpg" alt="BE 11"><div class="post-num">#10</div></div>
+        <div class="social-card" onclick="openLightbox(this)"><img src="/basari-evi/1 (12).jpg" alt="BE 12"><div class="post-num">#11</div></div>
+        <div class="social-card" onclick="openLightbox(this)"><img src="/basari-evi/1 (13).jpg" alt="BE 13"><div class="post-num">#12</div></div>
+        <div class="social-card" onclick="openLightbox(this)"><img src="/basari-evi/1 (14).jpg" alt="BE 14"><div class="post-num">#13</div></div>
+        <div class="social-card" onclick="openLightbox(this)"><img src="/basari-evi/1 (15).jpg" alt="BE 15"><div class="post-num">#14</div></div>
+        <div class="social-card" onclick="openLightbox(this)"><img src="/basari-evi/1 (16).jpg" alt="BE 16"><div class="post-num">#15</div></div>
+        <div class="social-card" onclick="openLightbox(this)"><img src="/basari-evi/1 (17).jpg" alt="BE 17"><div class="post-num">#16</div></div>
+      </div>
+    </section>
+
+    <div class="vinyl-crease"></div>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-32 px-6 md:px-20 text-center relative overflow-hidden">
+      <div class="animated-noise"></div>
+      <div class="marquee-container">
+        <div class="marquee-text">LET'S MAKE NOISE LET'S MAKE NOISE LET'S MAKE NOISE LET'S MAKE NOISE</div>
+      </div>
+      <div class="relative z-10">
+        <span class="text-accent font-display font-bold text-sm uppercase tracking-[0.3em] mb-4 block">— OUTRO</span>
+        <h2 class="text-5xl md:text-[6rem] font-display font-black uppercase tracking-tighter mb-10 text-primary drop-shadow-[4px_4px_0_#2E2E2E]">
+          SENINLE<br/>ÇALIŞALIM
+        </h2>
+        <a href="mailto:hello@erdemcevik.com" class="inline-block bg-accent text-background px-12 py-6 font-display font-black text-2xl md:text-3xl uppercase tracking-widest hover:bg-primary transition-colors shadow-[8px_8px_0px_#FDFBF7]">
+          GET IN TOUCH
+        </a>
+        <div class="mt-20 flex flex-col md:flex-row justify-between items-center text-secondary font-bold uppercase tracking-widest text-sm border-t border-secondary/50 pt-8">
+          <div class="flex gap-6 mb-6 md:mb-0">
+            <a href="#" class="hover:text-accent transition-colors">Instagram</a>
+            <a href="#" class="hover:text-accent transition-colors">Behance</a>
+            <a href="#" class="hover:text-accent transition-colors">LinkedIn</a>
+          </div>
+          <p class="text-primary/50">© 2026 ERDEM ÇEVİK / ALL RIGHTS RESERVED.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    function openLightbox(card) {
+      document.getElementById('lightbox-img').src = card.querySelector('img').src;
+      document.getElementById('lightbox').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    document.getElementById('lightbox-close').addEventListener('click', () => {
+      document.getElementById('lightbox').classList.remove('active');
+      document.body.style.overflow = '';
+    });
+    document.getElementById('lightbox').addEventListener('click', (e) => {
+      if (e.target === document.getElementById('lightbox')) {
+        document.getElementById('lightbox').classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  </script>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

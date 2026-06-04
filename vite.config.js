@@ -11,7 +11,8 @@ export default defineConfig({
         main: resolve(__dirname, 'index.html'),
         lidio: resolve(__dirname, 'lidio.html'),
         spectre: resolve(__dirname, 'spectre.html'),
-        surucu: resolve(__dirname, 'surucu-kurslari.html')
+        surucu: resolve(__dirname, 'surucu-kurslari.html'),
+        basarievi: resolve(__dirname, 'basari-evi.html')
       }
     }
   }
