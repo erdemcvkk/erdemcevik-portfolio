@@ -242,73 +242,305 @@
     .mockup-center {
       position: relative;
       z-index: 10;
-      width: 200px;
+      width: 240px;
       flex-shrink: 0;
     }
-    .mockup-center .phone-body {
-      width: 200px;
-      height: 400px;
-      background: #111;
-      border-radius: 32px;
-      border: 3px solid #333;
-      box-shadow:
-        inset 0 0 0 2px #1a1a1a,
-        0 40px 100px rgba(0,0,0,0.9),
-        0 0 60px var(--glow-color, rgba(30,111,217,0.3));
-      overflow: hidden;
+    .phone-frame {
       position: relative;
+      width: 240px;
+      height: 490px;
+      background: #0f0f0f;
+      border-radius: 40px;
+      padding: 10px;
+      box-shadow:
+        inset 0 0 2px 2px rgba(255,255,255,0.15),
+        0 25px 50px -12px rgba(0,0,0,0.8),
+        0 0 60px var(--glow-color, rgba(30,111,217,0.3));
+      border: 1px solid #2d2d2d;
     }
-    /* Notch */
-    .mockup-center .phone-body::before {
-      content: '';
+    .phone-screen {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background: #000;
+      border-radius: 32px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #1a1a1a;
+    }
+    .phone-btn {
       position: absolute;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60px;
-      height: 6px;
-      background: #222;
-      border-radius: 3px;
-      z-index: 10;
+      background: linear-gradient(to bottom, #2b2b2b, #151515);
+      border-radius: 2px 0 0 2px;
+      z-index: -1;
+      width: 3.5px;
     }
-    .phone-insta-header {
-      padding: 24px 10px 8px;
+    .phone-btn-power {
+      right: -3px;
+      top: 100px;
+      height: 45px;
+      border-radius: 0 2px 2px 0;
+    }
+    .phone-btn-vol-up {
+      left: -3px;
+      top: 90px;
+      height: 25px;
+    }
+    .phone-btn-vol-down {
+      left: -3px;
+      top: 125px;
+      height: 25px;
+    }
+    .phone-glare {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0) 50%);
+      pointer-events: none;
+      z-index: 50;
+    }
+    .phone-status-bar {
+      height: 28px;
+      padding: 0 18px;
       display: flex;
       align-items: center;
+      justify-content: space-between;
+      color: #fff;
+      font-size: 0.55rem;
+      font-weight: 600;
+      z-index: 20;
+      margin-top: 4px;
+    }
+    .phone-status-icons {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .phone-icon-svg {
+      width: 10px;
+      height: 10px;
+      fill: currentColor;
+    }
+    .phone-battery-icon {
+      width: 14px;
+      height: 7px;
+      border: 1px solid rgba(255,255,255,0.5);
+      border-radius: 2px;
+      padding: 1px;
+      position: relative;
+    }
+    .phone-battery-icon::after {
+      content: '';
+      position: absolute;
+      right: -2px;
+      top: 1.5px;
+      width: 1px;
+      height: 2px;
+      background: rgba(255,255,255,0.5);
+    }
+    .phone-battery-level {
+      width: 80%;
+      height: 100%;
+      background: #fff;
+      border-radius: 0.5px;
+    }
+    .phone-dynamic-island {
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 65px;
+      height: 16px;
+      background: #000;
+      border-radius: 20px;
+      z-index: 30;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 6px;
+      box-shadow: inset 0 0 1px 1px rgba(255,255,255,0.05);
+    }
+    .phone-camera-lens {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #0e1e38 0%, #050a14 70%);
+      box-shadow: inset 0 0 1px rgba(255,255,255,0.5);
+    }
+    .phone-insta-header {
+      height: 38px;
+      border-bottom: 1px solid #1c1c1c;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 10px;
+      color: #fff;
+      z-index: 10;
+      margin-top: -8px; /* space correction under status bar */
+    }
+    .phone-back-arrow, .phone-dots {
+      width: 14px;
+      height: 14px;
+      color: #fff;
+      cursor: pointer;
+    }
+    .phone-header-title {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+    .phone-username-text {
+      font-size: 0.65rem;
+      font-weight: 700;
+    }
+    .phone-verified-badge {
+      width: 9px;
+      height: 9px;
+      color: #0095f6;
+    }
+    .phone-insta-profile-info {
+      padding: 8px 10px 4px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      z-index: 10;
+    }
+    .phone-avatar-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       gap: 8px;
-      border-bottom: 1px solid #222;
+    }
+    .phone-avatar-glow {
+      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+      padding: 1.5px;
+      border-radius: 50%;
     }
     .phone-avatar {
-      width: 36px; height: 36px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
-      background: linear-gradient(135deg, var(--glow-color, #1E6FD9), #FF5A1F);
-      flex-shrink: 0;
+      border: 1.5px solid #000;
       overflow: hidden;
+      background: #262626;
     }
     .phone-avatar img {
-      width: 100%; height: 100%;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
     }
-    .phone-username {
-      font-size: 0.55rem;
+    .phone-stats-cols {
+      display: flex;
+      gap: 8px;
+      flex-grow: 1;
+      justify-content: space-around;
+    }
+    .phone-stat-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .phone-stat-val {
+      font-size: 0.65rem;
       font-weight: 700;
       color: #fff;
-      letter-spacing: 0.05em;
+    }
+    .phone-stat-lbl {
+      font-size: 0.45rem;
+      color: #a8a8a8;
+    }
+    .phone-bio-row {
+      text-align: left;
+      font-size: 0.5rem;
+      line-height: 1.2;
+    }
+    .phone-bio-name {
+      font-weight: 700;
+      color: #fff;
+    }
+    .phone-bio-category {
+      color: #727272;
+      margin-top: 1px;
+    }
+    .phone-bio-desc {
+      color: #f5f5f5;
+      margin-top: 1px;
+    }
+    .phone-action-buttons {
+      display: flex;
+      gap: 4px;
+    }
+    .phone-btn-follow, .phone-btn-message {
+      flex: 1;
+      height: 18px;
+      font-size: 0.5rem;
+      font-weight: 600;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+    }
+    .phone-btn-follow {
+      background: #0095f6;
+      color: #fff;
+    }
+    .phone-btn-message {
+      background: #262626;
+      color: #fff;
+    }
+    .phone-tabs-bar {
+      display: flex;
+      border-top: 1px solid #1c1c1c;
+      margin-top: 2px;
+    }
+    .phone-tab-icon {
+      flex: 1;
+      height: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #727272;
+    }
+    .phone-tab-icon.active {
+      color: #fff;
+      border-bottom: 1.5px solid #fff;
+    }
+    .phone-tab-icon svg {
+      width: 10px;
+      height: 10px;
     }
     .phone-feed {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1px;
       background: #000;
+      padding: 1px 0;
+      flex-grow: 1;
     }
     .phone-feed-cell {
       aspect-ratio: 1/1;
+      background: #121212;
       overflow: hidden;
-      background: #1a1a1a;
     }
     .phone-feed-cell img {
-      width: 100%; height: 100%;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
+    }
+    .phone-home-indicator {
+      height: 10px;
+      position: relative;
+      background: #000;
+    }
+    .phone-home-indicator::after {
+      content: '';
+      position: absolute;
+      bottom: 3px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 2px;
+      background: rgba(255,255,255,0.4);
+      border-radius: 99px;
     }
 
     /* Floating post cards around the phone */
@@ -439,26 +671,91 @@
 
         <!-- Center phone -->
         <div class="mockup-center">
-          <div class="phone-body">
-            <div class="phone-insta-header">
-              <div class="phone-avatar">
-                <img src="/surucu-kurslari/marmara/marmara (1).png" alt="">
+          <div class="phone-frame">
+            <!-- Buttons -->
+            <div class="phone-btn phone-btn-power"></div>
+            <div class="phone-btn phone-btn-vol-up"></div>
+            <div class="phone-btn phone-btn-vol-down"></div>
+            
+            <div class="phone-screen">
+              <!-- Glass reflection glare -->
+              <div class="phone-glare"></div>
+              
+              <!-- iOS Status Bar -->
+              <div class="phone-status-bar">
+                <span class="phone-time">14:20</span>
+                <div class="phone-status-icons">
+                  <svg class="phone-icon-svg" viewBox="0 0 24 24"><path fill="currentColor" d="M2 22h20V2z"/></svg>
+                  <svg class="phone-icon-svg" viewBox="0 0 24 24"><path fill="currentColor" d="M12 21a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm-8.5-7.5a1 1 0 0 1 0-1.4 12 12 0 0 1 17 0 1 1 0 0 1 0 1.4c-.4.4-1 .4-1.4 0a10 10 0 0 0-14.2 0c-.4.4-1 .4-1.4 0zm4.2 4.2a1 1 0 0 1 0-1.4 6 6 0 0 1 8.6 0 1 1 0 0 1 0 1.4c-.4.4-1 .4-1.4 0a4 4 0 0 0-5.8 0c-.4.4-1 .4-1.4 0z"/></svg>
+                  <div class="phone-battery-icon">
+                    <div class="phone-battery-level"></div>
+                  </div>
+                </div>
               </div>
-              <div>
-                <div class="phone-username">@marmara_surucu</div>
-                <div style="font-size:0.45rem;color:#666;margin-top:2px;">Sürücü Kursu</div>
+              
+              <!-- Dynamic Island -->
+              <div class="phone-dynamic-island">
+                <div class="phone-camera-lens"></div>
               </div>
-            </div>
-            <div class="phone-feed">
-              <div class="phone-feed-cell"><img src="/surucu-kurslari/marmara/marmara (1).png" alt=""></div>
-              <div class="phone-feed-cell"><img src="/surucu-kurslari/marmara/marmara (2).png" alt=""></div>
-              <div class="phone-feed-cell"><img src="/surucu-kurslari/marmara/marmara (3).png" alt=""></div>
-              <div class="phone-feed-cell"><img src="/surucu-kurslari/marmara/marmara (4).png" alt=""></div>
-              <div class="phone-feed-cell"><img src="/surucu-kurslari/marmara/marmara (5).png" alt=""></div>
-              <div class="phone-feed-cell"><img src="/surucu-kurslari/marmara/marmara (6).png" alt=""></div>
-              <div class="phone-feed-cell"><img src="/surucu-kurslari/marmara/marmara (7).png" alt=""></div>
-              <div class="phone-feed-cell"><img src="/surucu-kurslari/marmara/marmara (8).png" alt=""></div>
-              <div class="phone-feed-cell"><img src="/surucu-kurslari/marmara/marmara (9).png" alt=""></div>
+              
+              <!-- Instagram Header -->
+              <div class="phone-insta-header">
+                <svg class="phone-back-arrow" viewBox="0 0 24 24"><path fill="currentColor" d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+                <div class="phone-header-title">
+                  <span class="phone-username-text">@marmara_surucu</span>
+                  <svg class="phone-verified-badge" viewBox="0 0 24 24"><path fill="currentColor" d="M23 12l-2.44-2.79.34-3.69-3.61-.82-1.89-3.2L12 2.96 8.6 1.5 6.71 4.7 3.1 5.52l.34 3.7L1 12l2.44 2.79-.34 3.7 3.61.82L8.6 22.5 12 21.04l3.4 1.46 1.89-3.2 3.61-.82-.34-3.7L23 12zm-13 5l-4-4 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                </div>
+                <svg class="phone-dots" viewBox="0 0 24 24"><path fill="currentColor" d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
+              </div>
+              
+              <!-- Instagram Profile Info Area -->
+              <div class="phone-insta-profile-info">
+                <div class="phone-avatar-row">
+                  <div class="phone-avatar-glow">
+                    <div class="phone-avatar">
+                      <img src="/surucu-kurslari/marmara/marmara (1).png" alt="">
+                    </div>
+                  </div>
+                  <div class="phone-stats-cols">
+                    <div class="phone-stat-item"><span class="phone-stat-val">18</span><span class="phone-stat-lbl">Posts</span></div>
+                    <div class="phone-stat-item"><span class="phone-stat-val">4.8k</span><span class="phone-stat-lbl">Followers</span></div>
+                    <div class="phone-stat-item"><span class="phone-stat-val">245</span><span class="phone-stat-lbl">Following</span></div>
+                  </div>
+                </div>
+                <div class="phone-bio-row">
+                  <div class="phone-bio-name">Marmara Sürücü Kursu</div>
+                  <div class="phone-bio-category">Sürücü Kursu</div>
+                  <div class="phone-bio-desc">Profesyonel sürüş eğitimi ve ehliyet almanın en kolay yolu! 🚗💨 Pendik, İstanbul</div>
+                </div>
+                <div class="phone-action-buttons">
+                  <button class="phone-btn-follow">Takip Et</button>
+                  <button class="phone-btn-message">Mesaj</button>
+                </div>
+                <div class="phone-tabs-bar">
+                  <div class="phone-tab-icon active">
+                    <svg viewBox="0 0 24 24"><path fill="currentColor" d="M4 4h4v4H4zm6 0h4v4h-4zm6 0h4v4h-4zM4 10h4v4H4zm6 0h4v4h-4zm6 0h4v4h-4zM4 16h4v4H4zm6 0h4v4h-4zm6 0h4v4h-4z"/></svg>
+                  </div>
+                  <div class="phone-tab-icon">
+                    <svg viewBox="0 0 24 24"><path fill="currentColor" d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4zM14 13h-3v3H9v-3H6v-2h3V8h2v3h3v2z"/></svg>
+                  </div>
+                  <div class="phone-tab-icon">
+                    <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Instagram Grid (6 posts) -->
+              <div class="phone-feed">
+                <div class="phone-feed-cell"><img src="/surucu-kurslari/marmara/marmara (1).png" alt=""></div>
+                <div class="phone-feed-cell"><img src="/surucu-kurslari/marmara/marmara (2).png" alt=""></div>
+                <div class="phone-feed-cell"><img src="/surucu-kurslari/marmara/marmara (3).png" alt=""></div>
+                <div class="phone-feed-cell"><img src="/surucu-kurslari/marmara/marmara (4).png" alt=""></div>
+                <div class="phone-feed-cell"><img src="/surucu-kurslari/marmara/marmara (5).png" alt=""></div>
+                <div class="phone-feed-cell"><img src="/surucu-kurslari/marmara/marmara (6).png" alt=""></div>
+              </div>
+              
+              <!-- Home indicator -->
+              <div class="phone-home-indicator"></div>
             </div>
           </div>
         </div>
@@ -541,24 +838,91 @@
         <div class="float-card"><img src="/surucu-kurslari/yaman/yaman (2).png" alt=""></div>
         <div class="float-card"><img src="/surucu-kurslari/yaman/yaman (4).png" alt=""></div>
         <div class="mockup-center">
-          <div class="phone-body">
-            <div class="phone-insta-header">
-              <div class="phone-avatar"><img src="/surucu-kurslari/yaman/yaman (1).png" alt=""></div>
-              <div>
-                <div class="phone-username">@yaman_surucu</div>
-                <div style="font-size:0.45rem;color:#666;margin-top:2px;">Sürücü Kursu</div>
+          <div class="phone-frame">
+            <!-- Buttons -->
+            <div class="phone-btn phone-btn-power"></div>
+            <div class="phone-btn phone-btn-vol-up"></div>
+            <div class="phone-btn phone-btn-vol-down"></div>
+            
+            <div class="phone-screen">
+              <!-- Glass reflection glare -->
+              <div class="phone-glare"></div>
+              
+              <!-- iOS Status Bar -->
+              <div class="phone-status-bar">
+                <span class="phone-time">14:20</span>
+                <div class="phone-status-icons">
+                  <svg class="phone-icon-svg" viewBox="0 0 24 24"><path fill="currentColor" d="M2 22h20V2z"/></svg>
+                  <svg class="phone-icon-svg" viewBox="0 0 24 24"><path fill="currentColor" d="M12 21a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm-8.5-7.5a1 1 0 0 1 0-1.4 12 12 0 0 1 17 0 1 1 0 0 1 0 1.4c-.4.4-1 .4-1.4 0a10 10 0 0 0-14.2 0c-.4.4-1 .4-1.4 0zm4.2 4.2a1 1 0 0 1 0-1.4 6 6 0 0 1 8.6 0 1 1 0 0 1 0 1.4c-.4.4-1 .4-1.4 0a4 4 0 0 0-5.8 0c-.4.4-1 .4-1.4 0z"/></svg>
+                  <div class="phone-battery-icon">
+                    <div class="phone-battery-level"></div>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div class="phone-feed">
-              <div class="phone-feed-cell"><img src="/surucu-kurslari/yaman/yaman (1).png" alt=""></div>
-              <div class="phone-feed-cell"><img src="/surucu-kurslari/yaman/yaman (2).png" alt=""></div>
-              <div class="phone-feed-cell"><img src="/surucu-kurslari/yaman/yaman (3).png" alt=""></div>
-              <div class="phone-feed-cell"><img src="/surucu-kurslari/yaman/yaman (4).png" alt=""></div>
-              <div class="phone-feed-cell"><img src="/surucu-kurslari/yaman/yaman (5).png" alt=""></div>
-              <div class="phone-feed-cell"><img src="/surucu-kurslari/yaman/yaman (6).png" alt=""></div>
-              <div class="phone-feed-cell"><img src="/surucu-kurslari/yaman/yaman (7).png" alt=""></div>
-              <div class="phone-feed-cell"><img src="/surucu-kurslari/yaman/yaman (8).png" alt=""></div>
-              <div class="phone-feed-cell"><img src="/surucu-kurslari/yaman/yaman (9).png" alt=""></div>
+              
+              <!-- Dynamic Island -->
+              <div class="phone-dynamic-island">
+                <div class="phone-camera-lens"></div>
+              </div>
+              
+              <!-- Instagram Header -->
+              <div class="phone-insta-header">
+                <svg class="phone-back-arrow" viewBox="0 0 24 24"><path fill="currentColor" d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+                <div class="phone-header-title">
+                  <span class="phone-username-text">@yaman_surucu</span>
+                  <svg class="phone-verified-badge" viewBox="0 0 24 24"><path fill="currentColor" d="M23 12l-2.44-2.79.34-3.69-3.61-.82-1.89-3.2L12 2.96 8.6 1.5 6.71 4.7 3.1 5.52l.34 3.7L1 12l2.44 2.79-.34 3.7 3.61.82L8.6 22.5 12 21.04l3.4 1.46 1.89-3.2 3.61-.82-.34-3.7L23 12zm-13 5l-4-4 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                </div>
+                <svg class="phone-dots" viewBox="0 0 24 24"><path fill="currentColor" d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
+              </div>
+              
+              <!-- Instagram Profile Info Area -->
+              <div class="phone-insta-profile-info">
+                <div class="phone-avatar-row">
+                  <div class="phone-avatar-glow">
+                    <div class="phone-avatar">
+                      <img src="/surucu-kurslari/yaman/yaman (1).png" alt="">
+                    </div>
+                  </div>
+                  <div class="phone-stats-cols">
+                    <div class="phone-stat-item"><span class="phone-stat-val">18</span><span class="phone-stat-lbl">Posts</span></div>
+                    <div class="phone-stat-item"><span class="phone-stat-val">3.2k</span><span class="phone-stat-lbl">Followers</span></div>
+                    <div class="phone-stat-item"><span class="phone-stat-val">190</span><span class="phone-stat-lbl">Following</span></div>
+                  </div>
+                </div>
+                <div class="phone-bio-row">
+                  <div class="phone-bio-name">Yaman Sürücü Kursu</div>
+                  <div class="phone-bio-category">Sürücü Kursu</div>
+                  <div class="phone-bio-desc">Dinamik sürüş eğitimi ve uzman kadro. Yaman'la ehliyet almak çok kolay! 🏍️🚗 Pendik, İstanbul</div>
+                </div>
+                <div class="phone-action-buttons">
+                  <button class="phone-btn-follow">Takip Et</button>
+                  <button class="phone-btn-message">Mesaj</button>
+                </div>
+                <div class="phone-tabs-bar">
+                  <div class="phone-tab-icon active">
+                    <svg viewBox="0 0 24 24"><path fill="currentColor" d="M4 4h4v4H4zm6 0h4v4h-4zm6 0h4v4h-4zM4 10h4v4H4zm6 0h4v4h-4zm6 0h4v4h-4zM4 16h4v4H4zm6 0h4v4h-4zm6 0h4v4h-4z"/></svg>
+                  </div>
+                  <div class="phone-tab-icon">
+                    <svg viewBox="0 0 24 24"><path fill="currentColor" d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4zM14 13h-3v3H9v-3H6v-2h3V8h2v3h3v2z"/></svg>
+                  </div>
+                  <div class="phone-tab-icon">
+                    <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Instagram Grid (6 posts) -->
+              <div class="phone-feed">
+                <div class="phone-feed-cell"><img src="/surucu-kurslari/yaman/yaman (1).png" alt=""></div>
+                <div class="phone-feed-cell"><img src="/surucu-kurslari/yaman/yaman (2).png" alt=""></div>
+                <div class="phone-feed-cell"><img src="/surucu-kurslari/yaman/yaman (3).png" alt=""></div>
+                <div class="phone-feed-cell"><img src="/surucu-kurslari/yaman/yaman (4).png" alt=""></div>
+                <div class="phone-feed-cell"><img src="/surucu-kurslari/yaman/yaman (5).png" alt=""></div>
+                <div class="phone-feed-cell"><img src="/surucu-kurslari/yaman/yaman (6).png" alt=""></div>
+              </div>
+              
+              <!-- Home indicator -->
+              <div class="phone-home-indicator"></div>
             </div>
           </div>
         </div>
